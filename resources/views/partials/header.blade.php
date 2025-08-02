@@ -33,7 +33,7 @@
                             <a href="tour-content-form" class="nav-dropdown-link">tour-content-form</a>
                         </li>
                         <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="home-blog-form" class="nav-dropdown-link">home-blog-form</a>
+                            <a href="blog-form" class="nav-dropdown-link">home-blog-form</a>
                         </li>
                         <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="teacher-hod-form" class="nav-dropdown-link">teacher-hod-form</a>

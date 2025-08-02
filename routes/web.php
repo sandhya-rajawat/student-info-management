@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::view('/header', 'partials.header');
-// Route::view('/footer', 'partials.footer');
-
+Route::view('/', 'home.index');
+Route::view('blog-form', 'blog.blog-form');
+Route::view('blog', 'blog.blog');
 
