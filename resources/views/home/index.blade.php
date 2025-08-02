@@ -8,10 +8,13 @@
     <img src="{{ asset('image/students.webp') }}" alt="students" class="w-screen h-full ">
 
     <!-- Positioned content -->
+       @if($data)
     <div class="absolute top-[150px] left-10 bg-white/80 p-6 rounded-xl shadow-lg max-w-lg">
-      <h1 class="text-4xl font-bold text-gray-800">rjghkhkj</h1>
-      <p class="mt-4 text-gray-700">dndsknkjn</p>
+    
+      <h1 class="text-4xl font-bold text-gray-800">{{$data->title}}</h1>
+      <p class="mt-4 text-gray-700">{{$data->description}}</p>
     </div>
+      @endif
   </div>
 
   <!-- About Section -->
