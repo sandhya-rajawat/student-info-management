@@ -32,27 +32,23 @@
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl font-bold mb-6 text-center text-blue-900">Key Features</h2>
       <div class="grid md:grid-cols-3 gap-6">
-      
+      @foreach($detail as $info)
         <div class="bg-white p-4 rounded-xl shadow-md">
-          <img src="{{ asset('image/students.webp') }}" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
-          <a href="blog-detils"><h3 class="text-xl font-semibold mb-2  cursor-pointer">kjdsfnkjds</h3></a>
-          <p class="text-gray-700 text-sm mb-3">vnfkjvnkjfnv</p>
+          <img src="{{ asset('uploads/' . $info->image) }}" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
+          <a href="blog-detils"><h3 class="text-xl font-semibold mb-2  cursor-pointer">{{$info->title}}</h3></a>
+          <p class="text-gray-700 text-sm mb-3">{{$info->description}}</p>
           <div class="flex space-x-4 text-gray-600 text-sm mt-2">
-            <p>mvndkmvn</p>
-            <p>vnkmfnvkmdf v</p>
+            <p>{{$info->created_at}}</p>
+            <p>{{$info->updated_at}}</p>
           </div>
         </div>
-     kvnadskjvkn
+        @endforeach
+  
       </div>
     </div>
   </div>
 
-  <!-- Call to Action
-  <div class="bg-blue-200 text-white p-10 text-center">
-    <h2 class="text-3xl font-bold mb-4">Get Started Now</h2>
-    <p class="mb-6">Start managing your student records efficiently today.</p>
-    <a href="signup" class="bg-white text-gray-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Sign In</a>
-  </div> -->
+
 
 </div>
 

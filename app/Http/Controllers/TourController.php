@@ -5,7 +5,9 @@ use  App\Models\textcontent;
 
 use Illuminate\Http\Request;
 
-class TourController
+class TourController extends Controller
+
+
 {
 public function store(Request $request)
     {
@@ -30,9 +32,9 @@ public function store(Request $request)
         return back()->with('error', 'Something went wrong.');
     }
 
-    public function index(){
-        $textcontent=textcontent::first();
-        return view('home.index',['data'=>$textcontent]);
-    }
+    // public function index(){
+    //     $textcontent=textcontent::first();
+    //     return view('home.index',['data'=>$textcontent]);
+    // }
 }
 

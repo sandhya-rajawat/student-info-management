@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TourController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,5 +32,10 @@ Route::view('tour-content-form', 'home.tour-content-form');
 
 
 
+
 Route::post('/messages', [TourController::class, 'store']);
 Route::get('/', [TourController::class, 'index']);
+
+
+Route::post('/information', [HomeController::class, 'store']);
+Route::get('/', [HomeController::class, 'index']);
