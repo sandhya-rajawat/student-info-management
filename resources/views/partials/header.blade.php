@@ -63,6 +63,9 @@
                         <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="school-time" class="nav-dropdown-link">school-time</a>
                         </li>
+                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="school-teachers" class="nav-dropdown-link">school-teachers</a>
+                        </li>
                         <!-- <li class="nav-dropdown-item w-full bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="teachers_team" class="nav-dropdown-link">Teachers_team</a>
                         </li> -->

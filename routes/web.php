@@ -5,6 +5,7 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TimeController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TeacherController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -50,3 +51,6 @@ Route::get('school-time', [TimeController::class, 'index']);
 
 Route::post('/events', [EventController::class, 'store']);
 Route::get('/school-events', [EventController::class, 'index']);
+
+Route::post('/teachers', [TeacherController::class, 'store']);
+Route::get('/school-teachers', [TeacherController::class, 'index']);

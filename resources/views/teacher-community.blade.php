@@ -17,38 +17,20 @@
   <div class="max-w-6xl mx-auto space-y-4 px-4">
 
     <div class="grid md:grid-cols-4 gap-4 justify-center">
-
+@foreach($data as $info)
       <!-- Committee Member 1 -->
       <div class="bg-green-100 p-2 rounded-xl shadow-md text-center w-60 cursor-pointer">
-        <img src="uploads/member1.jpg" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
-        <p class="font-bold">Principal</p>
-        <p class="text-gray-600 text-sm">Mrs. Anjali Sharma</p>
-        <p class="text-gray-600 text-sm">M.A. B.Ed</p>
+        <img src="{{asset('uploads/'.$info->image)}}" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
+        <p class="font-bold">{{$info->name}}</p>
+        <p class="text-gray-600 text-sm">{{$info->education}}</p>
+        <p class="text-gray-600 text-sm">{{$info->possition}}</p>
       </div>
 
-      <!-- Committee Member 2 -->
-      <div class="bg-green-100 p-2 rounded-xl shadow-md text-center w-60 cursor-pointer">
-        <img src="uploads/member2.jpg" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
-        <p class="font-bold">Vice Principal</p>
-        <p class="text-gray-600 text-sm">Mr. Rajeev Mehta</p>
-        <p class="text-gray-600 text-sm">M.Sc. B.Ed</p>
-      </div>
+    
 
-      <!-- Committee Member 3 -->
-      <div class="bg-green-100 p-2 rounded-xl shadow-md text-center w-60 cursor-pointer">
-        <img src="uploads/member3.jpg" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
-        <p class="font-bold">Coordinator</p>
-        <p class="text-gray-600 text-sm">Ms. Priya Kaur</p>
-        <p class="text-gray-600 text-sm">M.Com. B.Ed</p>
-      </div>
+      
 
-      <!-- Committee Member 4 -->
-      <div class="bg-green-100 p-2 rounded-xl shadow-md text-center w-60 cursor-pointer">
-        <img src="uploads/member4.jpg" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
-        <p class="font-bold">Senior Teacher</p>
-        <p class="text-gray-600 text-sm">Mr. Manoj Yadav</p>
-        <p class="text-gray-600 text-sm">M.A. M.Ed</p>
-      </div>
+    @endforeach
 
     </div>
   </div>
