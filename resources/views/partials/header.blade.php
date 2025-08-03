@@ -30,26 +30,23 @@
                     <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 ">
 
                         <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="tour-content-form" class="nav-dropdown-link">tour-content-form</a>
+                            <a href="feature" class="nav-dropdown-link">feature</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="blog-form" class="nav-dropdown-link">home-blog-form</a>
+                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="tourtext" class="nav-dropdown-link">tourtext</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="teacher-hod-form" class="nav-dropdown-link">teacher-hod-form</a>
+                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="blog" class="nav-dropdown-link">blog</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="teacher_form" class="nav-dropdown-link">Teachers_Add</a>
+                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="time" class="nav-dropdown-link">time</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="schooltime_form" class="nav-dropdown-link">schooltime_form</a>
+                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="events" class="nav-dropdown-link">events</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="event_form" class="nav-dropdown-link">event_form</a>
+                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="teachers" class="nav-dropdown-link">teachers</a>
                         </li>
-
-
-
                     </ul>
                 </li>
 
@@ -64,16 +61,16 @@
                     <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 bg-white w-60  ">
 
                         <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school_time" class="nav-dropdown-link">school_time</a>
+                            <a href="school-time" class="nav-dropdown-link">school-time</a>
                         </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
+                        <!-- <li class="nav-dropdown-item w-full bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="teachers_team" class="nav-dropdown-link">Teachers_team</a>
-                        </li>
-                        <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
+                        </li> -->
+                        <!-- <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="Head_Department_message" class="nav-dropdown-link">Head-Department-message</a>
-                        </li>
+                        </li> -->
                         <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school_event" class="nav-dropdown-link">school_event</a>
+                            <a href="school-events" class="nav-dropdown-link">school-events</a>
                         </li>
 
 
@@ -85,14 +82,14 @@
 
 
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white hover:rounded-xl  transition duration-100 ease-in-out hover:shadow-lg">Facilities</a></li>
-               
+
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg">Contact Us</a></li>
                 <!-- <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg ">Pre-Primary</a></li> -->
-@if(Session::has('profile'))
-    <a href="/signout" class="text-red-500">Sign Out</a>
-@else
-    <a href="/signin" class="text-green-500">Sign In</a>
-@endif
+                @if(Session::has('profile'))
+                <a href="/signout" class="text-red-500">Sign Out</a>
+                @else
+                <a href="/signin" class="text-green-500">Sign In</a>
+                @endif
 
 
             </ul>

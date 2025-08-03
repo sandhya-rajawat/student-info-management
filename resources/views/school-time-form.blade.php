@@ -2,7 +2,7 @@
 @section('content')
 <div class="flex items-center justify-center min-h-[calc(100vh-120px)]
 ">
-  <form action="{{url('insertSchoolTime')}}" method="POST" class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
+  <form action="{{url('schooltime')}}" method="POST" class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
     @csrf
 
 

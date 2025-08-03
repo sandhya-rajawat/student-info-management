@@ -19,37 +19,19 @@
 
   <!-- Timings Grid (Static Entries) -->
   <div class="max-w-6xl mx-auto mt-5 mb-5 px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-
+@foreach($GetTimeInfo as $info)
     <!-- Example Timing Card 1 -->
     <div class="bg-red-50 p-5 rounded-lg shadow">
-      <h3 class="text-lg font-semibold mb-2">Pre-Primary</h3>
-      <p class="text-sm text-gray-700">Monday to Friday</p>
+      <h3 class="text-lg font-semibold mb-2">{{$info->title}}</h3>
+      <p class="text-sm text-gray-700">{{$info->description}}</p>
       <div class="flex space-x-4 text-gray-600 text-sm mt-2">
-        <p>Created: 2025-08-01</p>
-        <p>Updated: 2025-08-02</p>
+        <p>{{$info->created_at}}</p>
+        <p>{{$info->updated_at}}</p>
       </div>
     </div>
 
-    <!-- Example Timing Card 2 -->
-    <div class="bg-red-50 p-5 rounded-lg shadow">
-      <h3 class="text-lg font-semibold mb-2">Primary</h3>
-      <p class="text-sm text-gray-700">Monday to Saturday</p>
-      <div class="flex space-x-4 text-gray-600 text-sm mt-2">
-        <p>Created: 2025-08-01</p>
-        <p>Updated: 2025-08-02</p>
-      </div>
-    </div>
-
-    <!-- Example Timing Card 3 -->
-    <div class="bg-red-50 p-5 rounded-lg shadow">
-      <h3 class="text-lg font-semibold mb-2">Secondary</h3>
-      <p class="text-sm text-gray-700">Monday to Saturday</p>
-      <div class="flex space-x-4 text-gray-600 text-sm mt-2">
-        <p>Created: 2025-08-01</p>
-        <p>Updated: 2025-08-02</p>
-      </div>
-    </div>
-
+   
+@endforeach
   </div>
 </div>
 @endsection
