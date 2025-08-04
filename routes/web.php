@@ -53,4 +53,8 @@ Route::post('signup', [AuthController::class, 'store']);
 Route::get('signin', [AuthController::class, 'createSignIn']);
 Route::post('signin', [AuthController::class, 'loginUser']);
 
+Route::get('/verify-otp', [AuthController::class, 'showOtpForm'])->name('showOtpForm');
+Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('verifyOtp');
+
+
 Route::get('signout', [AuthController::class, 'logoutUser']);

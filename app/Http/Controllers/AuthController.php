@@ -9,20 +9,18 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    // Show signup in form
-      public function createSignUp()
+    public function createSignUp()
     {
         return view('signup');
     }
-    // Show sign in form
+
     public function createSignIn()
     {
-        return view('signin'); 
+        return view('signin');
     }
-   // Store Signup Data
+
     public function store(Request $request)
     {
-        // Validate data
         $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|unique:users,email',
@@ -39,13 +37,12 @@ class AuthController extends Controller
         $user->gender   = $request->gender;
 
         if ($user->save()) {
-            return redirect('/')->with("success", 'Details added successfully!');
+            return redirect('/signin')->with("success", 'Account created! Please log in.');
         } else {
             return back()->with("error", 'Failed to save data!');
         }
     }
 
-    // Login
     public function loginUser(Request $request)
     {
         $request->validate([
@@ -56,17 +53,63 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
+            // Generate OTP
+            $otp = rand(100000, 999999);
+            $user->otp = $otp;
+            $user->otp_expiration = now()->addMinutes(5);
+            $user->save();
+
             Session::put('profile', $user);
-            return redirect('/')->with('success', 'Logged in successfully!');
-        } else {
-            return back()->with('error', 'Invalid Email or Password');
+            return redirect('/verify-otp')->with('otp', $otp); // for testing
         }
+
+        return back()->with('error', 'Invalid Email or Password');
     }
+
+    public function showOtpForm()
+    {
+        $user = Session::get('profile');
+        if (!$user) {
+            return redirect('/signin')->with('error', 'Please login first.');
+        }
+
+        return view('auth.verify-otp')->with('otp', session('otp'));
+    }
+
+    public function verifyOtp(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required|digits:6',
+        ]);
+
+        $user = Session::get('profile');
+        if (!$user) {
+            return redirect('/signin')->with('error', 'Please login first.');
+        }
+
+        $dbUser = User::find($user->id);
+
+        if ($dbUser->otp !== $request->otp) {
+            return back()->with('error', 'Invalid OTP.');
+        }
+
+        if (now()->greaterThan($dbUser->otp_expiration)) {
+            return back()->with('error', 'OTP expired.');
+        }
+
+        // Verify user
+        $dbUser->is_verified = 1;
+        $dbUser->otp = null;
+        $dbUser->otp_expiration = null;
+        $dbUser->save();
+
+        Session::put('profile', $dbUser); // update session
+        return redirect('/')->with('success', 'OTP Verified Successfully!');
+    }
+
     public function logoutUser()
-{
-    Session::forget('profile');
-    return redirect('/')->with('success', 'Logged out successfully!');
+    {
+        Session::forget('profile');
+        return redirect('/')->with('success', 'Logged out successfully!');
+    }
 }
-
-}
-

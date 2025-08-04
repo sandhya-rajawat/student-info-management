@@ -1,5 +1,5 @@
 @vite('resources/css/app.css')
-<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md h-20">
+<header class="fixed top-0 w-full z-50  backdrop-blur-md shadow-md h-20">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
@@ -87,7 +87,7 @@
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg">Contact Us</a></li>
                 
               @if(Session::has('profile'))
-    <p>Welcome, {{ Session::get('profile')->name }}</p>
+    <p> {{ Session::get('profile')->name }}</p>
     <a href="{{ url('signout') }}">Sign Out</a>
 @else
     <a href="{{ url('signin') }}">Sign In</a>
