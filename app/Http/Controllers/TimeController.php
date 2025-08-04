@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\schooltime;
+use App\Models\SchoolTime;
 class TimeController extends Controller
 {
     function store(Request $request){
-   $DataSclTime= new schooltime();
+   $DataSclTime= new SchoolTime();
    $DataSclTime->title=$request->title;
    $DataSclTime->day=$request->day;
   if ($DataSclTime->save()) {
@@ -20,7 +20,7 @@ class TimeController extends Controller
 
 // Fetch data
 function index(){
-    $GetTime=schooltime::all();
+    $GetTime=SchoolTime::all();
     return view('school-time',['GetTimeInfo'=> $GetTime]);
 }
 }

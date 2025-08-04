@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use  App\Models\textcontent;
+use  App\Models\TextContent;
 
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ public function store(Request $request)
         ]);
 
         //  Step 2: Create new instance
-        $message = new textcontent();
+        $message = new TextContent();
         $message->title = $validated['title'];
         $message->description = $validated['description'];
 

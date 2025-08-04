@@ -66,12 +66,7 @@
                         <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="school-teachers" class="nav-dropdown-link">school-teachers</a>
                         </li>
-                        <!-- <li class="nav-dropdown-item w-full bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="teachers_team" class="nav-dropdown-link">Teachers_team</a>
-                        </li> -->
-                        <!-- <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="Head_Department_message" class="nav-dropdown-link">Head-Department-message</a>
-                        </li> -->
+                      
                         <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="school-events" class="nav-dropdown-link">school-events</a>
                         </li>
@@ -87,7 +82,7 @@
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white hover:rounded-xl  transition duration-100 ease-in-out hover:shadow-lg">Facilities</a></li>
 
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg">Contact Us</a></li>
-                <!-- <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg ">Pre-Primary</a></li> -->
+                
                 @if(Session::has('profile'))
                 <a href="/signout" class="text-red-500">Sign Out</a>
                 @else

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TextContent extends Model
+class user extends Model
 {
-    protected $table='text_contents';
+    //
 }

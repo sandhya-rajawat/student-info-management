@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\schoolevents;
+use App\Models\SchoolEvent;
 
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     function store(Request $request){
-$DataSchoolEvents=new schoolevents();
+$DataSchoolEvents=new SchoolEvent();
 $DataSchoolEvents->name=$request->name;
 $DataSchoolEvents->title=$request->title;
 if($request->hasFile('image')){
@@ -26,7 +26,7 @@ if($request->hasFile('image')){
 }
 // fetch data
 function index(){
-    $getSchoolEvents=schoolevents::all();
+    $getSchoolEvents=SchoolEvent::all();
     return view('events',["getinfo"=>$getSchoolEvents]);
 }
 

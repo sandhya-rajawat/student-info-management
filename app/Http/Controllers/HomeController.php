@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // ✅ Important
-use App\Models\homefeature ;
-use App\Models\textcontent;
+use App\Models\HomeFeature ;
+use App\Models\TextContent;
 
 
 class HomeController extends Controller
@@ -18,7 +18,7 @@ class HomeController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        $homeSection = new homefeature;
+        $homeSection = new HomeFeature;
         $homeSection->title = $request->title;
         $homeSection->description = $request->description;
 
@@ -38,8 +38,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $details = homefeature::all();
-  $textcontent = textcontent::latest()->first();
+        $details = HomeFeature::all();
+  $textcontent = TextContent::latest()->first();
 
         return view('home.index', [
           'data' => $textcontent,

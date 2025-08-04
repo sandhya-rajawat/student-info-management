@@ -13,30 +13,16 @@ Route::get('/', function () {
 
 Route::view('/', 'home.index');
 Route::view('feature', 'home.feature-form');
-Route::view('blog', 'blog-form');
-
-Route::view('blog', 'blog');
-
 Route::view('time', 'school-time-form');
-Route::view('schooltime', 'school-time');
 Route::view('events', 'events-form');
-// Route::view('events', 'events');
 Route::view('teachers', 'teacher-community-form');
-Route::view('teacher-community', 'teacher-community');
-
 Route::view('tourtext', 'home.tour-content-form');
+Route::view('signIn', 'signin');
+Route::view('signUp', 'signup');
 
 
-
-
-
-
-
-
-
-
-
-
+// Route::view('blog', 'blog-form');
+// Route::view('blog', 'blog');
 
 
 Route::post('/messages', [TourController::class, 'store']);
