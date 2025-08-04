@@ -40,9 +40,16 @@
         </div>
 
         <button type="submit"
-                class="w-full py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
+                class="w-20 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
           Sign In
         </button>
+  
+        <button type="submit"
+                class="w-20 ml-10 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
+      <a href="{{ url('signUp') }}">Sign Up</a>
+        </button>
+  
+
       </form>
     </div>
   </div>

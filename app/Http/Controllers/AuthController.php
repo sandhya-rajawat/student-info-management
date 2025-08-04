@@ -9,7 +9,17 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    // Store Signup Data
+    // Show signup in form
+      public function createSignUp()
+    {
+        return view('signup');
+    }
+    // Show sign in form
+    public function createSignIn()
+    {
+        return view('signin'); 
+    }
+   // Store Signup Data
     public function store(Request $request)
     {
         // Validate data
@@ -36,7 +46,7 @@ class AuthController extends Controller
     }
 
     // Login
-    public function index(Request $request)
+    public function loginUser(Request $request)
     {
         $request->validate([
             'email'    => 'required|email',
@@ -52,4 +62,11 @@ class AuthController extends Controller
             return back()->with('error', 'Invalid Email or Password');
         }
     }
+    public function logoutUser()
+{
+    Session::forget('profile');
+    return redirect('/')->with('success', 'Logged out successfully!');
 }
+
+}
+

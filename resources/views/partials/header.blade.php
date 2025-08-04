@@ -30,7 +30,7 @@
                     <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 ">
 
                         <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="feature" class="nav-dropdown-link">feature</a>
+                            <a href="key-features" class="nav-dropdown-link">key-features</a>
                         </li>
                         <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="tourtext" class="nav-dropdown-link">tourtext</a>
@@ -70,6 +70,9 @@
                         <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="school-events" class="nav-dropdown-link">school-events</a>
                         </li>
+                        <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
+                            <a href="school-blog" class="nav-dropdown-link">school-blog</a>
+                        </li>
 
 
 
@@ -83,12 +86,12 @@
 
                 <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg">Contact Us</a></li>
                 
-                @if(Session::has('profile'))
-                <a href="/signout" class="text-red-500">Sign Out</a>
-                @else
-                <a href="/signin" class="text-green-500">Sign In</a>
-                @endif
-
+              @if(Session::has('profile'))
+    <p>Welcome, {{ Session::get('profile')->name }}</p>
+    <a href="{{ url('signout') }}">Sign Out</a>
+@else
+    <a href="{{ url('signin') }}">Sign In</a>
+@endif
 
             </ul>
         </nav>

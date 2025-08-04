@@ -14,8 +14,9 @@
       <p class="text-gray-500">Donec sollicitudin molestie malesuada sollicitudin</p>
 
       <button class="w-full border border-gray-300 rounded-full py-2 px-4 text-sm font-medium flex items-center justify-center hover:bg-gray-100">
-
-        <a href="https://www.google.com/"> <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt=""></a>
+        <a href="https://www.google.com/"> 
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt="">
+        </a>
         Sign In With Google
       </button>
 
@@ -25,39 +26,58 @@
         <hr class="w-1/4 border-gray-300">
       </div>
 
-      <form method="POST" action="{{url('signup')}}" class="space-y-4">
+      {{-- Validation Errors --}}
+      @if ($errors->any())
+        <div class="mb-4 text-red-600">
+          <ul>
+            @foreach ($errors->all() as $error)
+               <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
+      <form method="POST" action="{{ url('signup') }}" class="space-y-4">
         @csrf
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Name</label>
-          <input type="text" name="name" placeholder="Enter Name...." required
+          <input type="text" name="name" placeholder="Enter Name...." value="{{ old('name') }}" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Email Address</label>
-          <input type="email" name="email" placeholder="you@example.com" required
+          <input type="email" name="email" placeholder="you@example.com" value="{{ old('email') }}" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Contact</label>
-          <input type="text" name="phone" placeholder="Your Contact...." required
+          <input type="text" name="phone" placeholder="Your Contact...." value="{{ old('phone') }}" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Gender</label>
-          <input type="text" name="gender" placeholder="Enter gender....." required
+          <select name="gender" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Gender</option>
+            <option value="male" {{ old('gender')=='male' ? 'selected' : '' }}>Male</option>
+            <option value="female" {{ old('gender')=='female' ? 'selected' : '' }}>Female</option>
+          </select>
         </div>
-
 
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Password</label>
           <input type="password" name="password" placeholder="********" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
+        <div>
+          <label class="text-sm font-medium text-gray-700 block mb-1">Confirm Password</label>
+          <input type="password" name="password_confirmation" placeholder="********" required
+            class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
         <button type="submit"
           class="w-full py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
-          Sign In
+          Sign Up
         </button>
       </form>
     </div>

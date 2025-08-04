@@ -6,15 +6,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TimeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AuthController;
 
 
 
 Route::view('/', 'home.index');
 
-// Route::view('signIn', 'signin');
-// Route::view('signUp', 'signup');
-// Route::view('blog', 'blog-form');
-// Route::view('blog', 'blog');
+
+
 
 //home_tour_message
 Route::get('tourtext', [TourController::class, 'create']);
@@ -40,3 +40,17 @@ Route::get('/school-events', [EventController::class, 'index']);
 Route::get('teachers', [TeacherController::class, 'create']);
 Route::post('teachers', [TeacherController::class, 'store']);
 Route::get('school-teachers', [TeacherController::class, 'index']);
+
+//school-blog
+Route::get('blog', [BlogController::class, 'create']);
+Route::post('school-blog', [BlogController::class, 'store']);
+Route::get('school-blog', [BlogController::class, 'index']);
+
+// Auth
+Route::get('signUp', [AuthController::class, 'createSignUp']);
+Route::post('signup', [AuthController::class, 'store']);
+
+Route::get('signin', [AuthController::class, 'createSignIn']);
+Route::post('signin', [AuthController::class, 'loginUser']);
+
+Route::get('signout', [AuthController::class, 'logoutUser']);
