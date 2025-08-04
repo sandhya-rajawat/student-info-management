@@ -11,10 +11,8 @@ use App\Http\Controllers\TeacherController;
 
 Route::view('/', 'home.index');
 
-Route::view('signIn', 'signin');
-Route::view('signUp', 'signup');
-
-
+// Route::view('signIn', 'signin');
+// Route::view('signUp', 'signup');
 // Route::view('blog', 'blog-form');
 // Route::view('blog', 'blog');
 
