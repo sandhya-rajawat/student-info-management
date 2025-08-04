@@ -7,16 +7,10 @@ use App\Http\Controllers\TimeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeacherController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::view('/', 'home.index');
-Route::view('feature', 'home.feature-form');
-Route::view('time', 'school-time-form');
-Route::view('events', 'events-form');
-Route::view('teachers', 'teacher-community-form');
-Route::view('tourtext', 'home.tour-content-form');
+
 Route::view('signIn', 'signin');
 Route::view('signUp', 'signup');
 
@@ -24,19 +18,27 @@ Route::view('signUp', 'signup');
 // Route::view('blog', 'blog-form');
 // Route::view('blog', 'blog');
 
-
+//home_tour_message
+Route::get('tourtext', [TourController::class, 'create']);
 Route::post('/messages', [TourController::class, 'store']);
 Route::get('/', [TourController::class, 'index']);
 
-
-Route::post('/information', [HomeController::class, 'store']);
+// home_key_feature
+Route::get('key-features', [HomeController::class, 'create']);
+Route::post('features', [HomeController::class, 'store']);
 Route::get('/', [HomeController::class, 'index']);
 
-Route::post('/schooltime', [TimeController::class, 'store']);
+// school-time
+Route::get('time', [TimeController::class, 'create']);
+Route::post('schooltime', [TimeController::class, 'store']);
 Route::get('school-time', [TimeController::class, 'index']);
 
+// school-events
+Route::get('events', [EventController::class, 'create']);
 Route::post('/events', [EventController::class, 'store']);
 Route::get('/school-events', [EventController::class, 'index']);
 
-Route::post('/teachers', [TeacherController::class, 'store']);
-Route::get('/school-teachers', [TeacherController::class, 'index']);
+//school-teachers
+Route::get('teachers', [TeacherController::class, 'create']);
+Route::post('teachers', [TeacherController::class, 'store']);
+Route::get('school-teachers', [TeacherController::class, 'index']);

@@ -23,7 +23,7 @@
     <!-- Example Timing Card 1 -->
     <div class="bg-red-50 p-5 rounded-lg shadow">
       <h3 class="text-lg font-semibold mb-2">{{$info->title}}</h3>
-      <p class="text-sm text-gray-700">{{$info->description}}</p>
+      <p class="text-sm text-gray-700">{{$info->day}}</p>
       <div class="flex space-x-4 text-gray-600 text-sm mt-2">
         <p>{{$info->created_at}}</p>
         <p>{{$info->updated_at}}</p>

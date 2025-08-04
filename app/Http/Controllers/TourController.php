@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use  App\Models\TextContent;
 
 use Illuminate\Http\Request;
@@ -9,13 +10,17 @@ class TourController extends Controller
 
 
 {
-public function store(Request $request)
+      public function create(){
+        return view('home.tour-content-form');
+    }
+    
+    public function store(Request $request)
     {
         //  Step 1: Validate input
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-           'description' => 'required|string',
-          
+            'description' => 'required|string',
+
         ]);
 
         //  Step 2: Create new instance
@@ -37,4 +42,3 @@ public function store(Request $request)
     //     return view('home.index',['data'=>$textcontent]);
     // }
 }
-

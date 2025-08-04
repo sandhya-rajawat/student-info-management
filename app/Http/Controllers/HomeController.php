@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller; // ✅ Important
-use App\Models\HomeFeature ;
+use App\Http\Controllers\Controller; 
+use App\Models\HomeFeature;
 use App\Models\TextContent;
 
 
 class HomeController extends Controller
 {
+    public function create(){
+        return view('home.feature-form');
+    }
+  
     public function store(Request $request)
     {
         $request->validate([
@@ -39,10 +43,10 @@ class HomeController extends Controller
     public function index()
     {
         $details = HomeFeature::all();
-  $textcontent = TextContent::latest()->first();
+        $textcontent = TextContent::latest()->first();
 
         return view('home.index', [
-          'data' => $textcontent,
+            'data' => $textcontent,
             'detail' => $details
         ]);
     }
