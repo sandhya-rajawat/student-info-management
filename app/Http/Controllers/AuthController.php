@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -59,8 +60,10 @@ class AuthController extends Controller
             $user->otp_expiration = now()->addMinutes(5);
             $user->save();
 
+            Log::info('Generated OTP for user ID '.$user->id.': '.$otp); // <-- Logging OTP
+
             Session::put('profile', $user);
-            return redirect('/verify-otp')->with('otp', $otp); // for testing
+            return redirect('/verify-otp'); // Don't send OTP to frontend
         }
 
         return back()->with('error', 'Invalid Email or Password');
@@ -73,7 +76,7 @@ class AuthController extends Controller
             return redirect('/signin')->with('error', 'Please login first.');
         }
 
-        return view('auth.verify-otp')->with('otp', session('otp'));
+        return view('auth.verify-otp'); // No OTP passed to view
     }
 
     public function verifyOtp(Request $request)
@@ -97,13 +100,13 @@ class AuthController extends Controller
             return back()->with('error', 'OTP expired.');
         }
 
-        // Verify user
+        // OTP verified
         $dbUser->is_verified = 1;
         $dbUser->otp = null;
         $dbUser->otp_expiration = null;
         $dbUser->save();
 
-        Session::put('profile', $dbUser); // update session
+        Session::put('profile', $dbUser);
         return redirect('/')->with('success', 'OTP Verified Successfully!');
     }
 
