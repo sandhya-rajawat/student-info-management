@@ -57,7 +57,7 @@ Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('verifyOt
 Route::get('signout', [AuthController::class, 'logoutUser']);
 
 Route::get('/email-form', [EmailController::class, 'create']);
-Route::get('email', [EmailController::class, 'SendEmail']);
+Route::post('send-email', [EmailController::class, 'SendEmail']);
 
 Route::get('/check-resend-key', function () {
     return config('services.resend.key') ?? 'API key is NULL';

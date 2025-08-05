@@ -9,7 +9,7 @@ class EmailController extends Controller
 
 {
     public function create(){
-        return view('send-email');
+        return view('email.send-email-form');
     }
     public function sendEmail()
     {
