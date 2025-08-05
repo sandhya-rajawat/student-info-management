@@ -8,13 +8,11 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmailController;
 
 
 
 Route::view('/', 'home.index');
-
-
-
 
 //home_tour_message
 Route::get('tourtext', [TourController::class, 'create']);
@@ -56,5 +54,11 @@ Route::post('signin', [AuthController::class, 'loginUser']);
 Route::get('/verify-otp', [AuthController::class, 'showOtpForm'])->name('showOtpForm');
 Route::post('/verify-otp', [AuthController::class, 'verifyOtp'])->name('verifyOtp');
 
-
 Route::get('signout', [AuthController::class, 'logoutUser']);
+
+Route::get('/email-form', [EmailController::class, 'create']);
+Route::get('email', [EmailController::class, 'SendEmail']);
+
+Route::get('/check-resend-key', function () {
+    return config('services.resend.key') ?? 'API key is NULL';
+});
