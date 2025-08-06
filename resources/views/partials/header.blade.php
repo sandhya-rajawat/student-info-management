@@ -11,7 +11,7 @@
 
         <!-- Navigation Links  -->
         <nav>
-            <ul class="flex space-x-6 text-sm font-medium text-gray-800 gap-20">
+            <ul class="flex space-x-6 text-sm font-medium text-gray-800 gap-10">
 
                 <a href="/">
                     <li class="nav-item nav-dropdown group relative hover:bg-green-500 hover:p-2 hover:rounded-xl hover:text-white  transition duration-100 ease-in-out hover:shadow-lg cursor-pointer">
@@ -28,7 +28,7 @@
                         </svg>
                     </span>
                     <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 ">
-
+@auth
                         <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="key-features" class="nav-dropdown-link">key-features</a>
                         </li>
@@ -47,6 +47,7 @@
                         <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
                             <a href="teachers" class="nav-dropdown-link">teachers</a>
                         </li>
+                        @endauth
                     </ul>
                 </li>
 
