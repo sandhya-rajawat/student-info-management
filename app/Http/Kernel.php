@@ -1,16 +1,15 @@
 <?php
 
-
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\Authenticate; 
 
 class Kernel extends HttpKernel
 {
-    // other code...
-
     protected $routeMiddleware = [
-        // your other middleware...
-        'checkLogin' => \App\Http\Middleware\CheckLogin::class,
+    'auth' => \App\Http\Middleware\Authenticate::class,
+
     ];
 }
+

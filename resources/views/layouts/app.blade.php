@@ -13,7 +13,7 @@
  
     @include('partials.header')
 
-    {{-- Page Content --}}
+ 
     <main class="min-h-screen py-8 px-4">
         @yield('content')
     </main>

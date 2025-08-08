@@ -1,104 +1,79 @@
 @vite('resources/css/app.css')
-<header class="fixed top-0 w-full z-50  backdrop-blur-md shadow-md h-20">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-            <a href="/"> <img src="{{ asset('image/logo.png') }}" alt="Logo" class="h-10" /></a>
+<header class="fixed top-0 z-50 w-full bg-white shadow">
+    <div class="flex items-center justify-between px-5 py-2">
+        <!-- Logo and Title -->
+        <div class="flex items-center gap-3">
             <a href="/">
-                <h1 class="text-xl font-bold text-blue-900">𝙎𝙝𝙞𝙠𝙨𝙝𝙖</h1>
+                <img src="{{ asset('image/logo.png') }}" class="h-12 w-12 rounded-full border border-gray-300 shadow" alt="Logo">
+            </a>
+            <a href="/">
+                <h1 class="text-3xl font-bold text-green-500">𝙎𝙝𝙞𝙠𝙨𝙝𝙖</h1>
             </a>
         </div>
 
-        <!-- Navigation Links  -->
-        <nav>
-            <ul class="flex space-x-6 text-sm font-medium text-gray-800 gap-10">
+        <!-- Navigation Links -->
+        <ul class="flex gap-6 text-lg font-semibold text-gray-800">
+            <li>
+                <a href="/" class="hover:text-green-500 transition">Home</a>
+            </li>
 
-                <a href="/">
-                    <li class="nav-item nav-dropdown group relative hover:bg-green-500 hover:p-2 hover:rounded-xl hover:text-white  transition duration-100 ease-in-out hover:shadow-lg cursor-pointer">
-                        Home
+            <!-- Form Dropdown -->
+            <li class="relative group cursor-pointer">
+                <span class="hover:text-green-500 transition">Form</span>
+                <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
 
-                    </li>
-                </a>
-                <!-- form -->
-                <li class="nav-item nav-dropdown group relative">
-                    <span class="nav-link inline-flex  cursor-pointer items-center hover:bg-green-500 hover:p-2 hover:rounded-xl hover:text-white  transition duration-100 ease-in-out hover:shadow-lg">
-                        Form
-                        <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                    </span>
-                    <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 ">
-@auth
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="key-features" class="nav-dropdown-link">key-features</a>
-                        </li>
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="tourtext" class="nav-dropdown-link">tourtext</a>
-                        </li>
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="blog" class="nav-dropdown-link">blog</a>
-                        </li>
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="time" class="nav-dropdown-link">time</a>
-                        </li>
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="events" class="nav-dropdown-link">events</a>
-                        </li>
-                        <li class="nav-dropdown-item bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="teachers" class="nav-dropdown-link">teachers</a>
-                        </li>
-                        @endauth
-                    </ul>
-                </li>
+                    <li><a href="{{ url('key-features') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Key Features</a></li>
+                    <li><a href="{{ url('tourtext') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Tour Text</a></li>
+                    <li><a href="{{ url('blog') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Blog</a></li>
+                    <li><a href="{{ url('time') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Time</a></li>
+                    <li><a href="{{ url('events') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Events</a></li>
+                    <li><a href="{{ url('teachers') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Teachers</a></li>
 
-                <!-- about section -->
-                <li class="nav-item nav-dropdown group relative">
-                    <span class="nav-link cursor-pointer inline-flex items-center hover:bg-green-500 hover:p-2 hover:rounded-xl hover:text-white  transition duration-100 ease-in-out hover:shadow-lg">
-                        About School
-                        <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                    </span>
-                    <ul class="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 bg-white w-60  ">
+                </ul>
+            </li>
 
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school-time" class="nav-dropdown-link">school-time</a>
-                        </li>
-                        <li class="nav-dropdown-item w-full bg-gray-100 p-1  hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school-teachers" class="nav-dropdown-link">school-teachers</a>
-                        </li>
-                      
-                        <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school-events" class="nav-dropdown-link">school-events</a>
-                        </li>
-                        <li class="nav-dropdown-item w-60 bg-gray-100 p-1 hover:bg-black hover:rounded-xl hover:text-white">
-                            <a href="school-blog" class="nav-dropdown-link">school-blog</a>
-                        </li>
+            <!-- About School Dropdown -->
+            <li class="relative group cursor-pointer">
+                <span class="hover:text-green-500 transition">About School</span>
+                <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
+                  
+                 
+                 
+                  <li>
+    <a href="school-time" class="block py-1 px-2 hover:bg-green-100 rounded">
+        School Timing
+    </a>
+</li>
+<li>
+    <a href="school-teachers" class="block py-1 px-2 hover:bg-green-100 rounded">
+        School Teachers
+    </a>
+</li>
+<li>
+    <a href="school-events" class="block py-1 px-2 hover:bg-green-100 rounded">
+        School Events
+    </a>
+</li>
+<li>
+    <a href="school-blog" class="block py-1 px-2 hover:bg-green-100 rounded">
+        School Blog
+    </a>
+</li>
+</li>
+                </ul>
+            </li>
 
 
+        </ul>
 
-                    </ul>
-                </li>
-
-
-
-
-                <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white hover:rounded-xl  transition duration-100 ease-in-out hover:shadow-lg">Facilities</a></li>
-
-                <li><a href="#" class=" hover:bg-green-500 hover:p-2 hover:text-white  hover:rounded-xl transition duration-100 ease-in-out hover:shadow-lg">Contact Us</a></li>
-                
-              @if(Session::has('profile'))
-    <p> {{ Session::get('profile')->name }}</p>
-    <a href="{{ url('signout') }}">Sign Out</a>
-@else
-    <a href="{{ url('signin') }}">Sign In</a>
-@endif
-
-            </ul>
-        </nav>
-
-
-
-
+        <!-- Sign In/Out + User Name -->
+        <div class="flex items-center gap-4 text-sm">
+            @if(Session::has('profile'))
+            <p class="font-medium text-green-600">{{ Session::get('profile')->name }}</p>
+            <a href="{{ url('signout') }}" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition">Sign Out</a>
+            @else
+            <a href="{{ url('signin') }}" class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">Sign In</a>
+            @endif
+        </div>
     </div>
 </header>
