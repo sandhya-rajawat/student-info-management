@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
@@ -60,9 +61,9 @@ class AuthController extends Controller
             $user->otp_expiration = now()->addMinutes(5);
             $user->save();
 
-            Log::info('Generated OTP for user ID '.$user->id.': '.$otp); // <-- Logging OTP
+            Log::info('Generated OTP for user ID ' . $user->id . ': ' . $otp); //  Logging OTP
 
-            Session::put('profile', $user);
+            Session::put('user_id', $user->id);
             return redirect('/verify-otp'); // Don't send OTP to frontend
         }
 
@@ -71,7 +72,8 @@ class AuthController extends Controller
 
     public function showOtpForm()
     {
-        $user = Session::get('profile');
+        $user = Session::get('user_id');
+
         if (!$user) {
             return redirect('/signin')->with('error', 'Please login first.');
         }
@@ -85,12 +87,12 @@ class AuthController extends Controller
             'otp' => 'required|digits:6',
         ]);
 
-        $user = Session::get('profile');
-        if (!$user) {
+        $userId  = Session::get('user_id');
+        if (!$userId) {
             return redirect('/signin')->with('error', 'Please login first.');
         }
 
-        $dbUser = User::find($user->id);
+        $dbUser = User::find($userId);
 
         if ($dbUser->otp !== $request->otp) {
             return back()->with('error', 'Invalid OTP.');
@@ -106,13 +108,14 @@ class AuthController extends Controller
         $dbUser->otp_expiration = null;
         $dbUser->save();
 
-        Session::put('profile', $dbUser);
+        Auth::guard()->login($dbUser);
         return redirect('/')->with('success', 'OTP Verified Successfully!');
     }
 
     public function logoutUser()
     {
-        Session::forget('profile');
+
+        Session::forget('user_id');
         return redirect('/')->with('success', 'Logged out successfully!');
     }
 }

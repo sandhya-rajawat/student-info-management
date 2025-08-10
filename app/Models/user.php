@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable as AuthAuthenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class User extends Model implements Authenticatable
 {
-    protected $table='users';
+    use AuthAuthenticatable;
+
+    protected $table = 'users';
 }

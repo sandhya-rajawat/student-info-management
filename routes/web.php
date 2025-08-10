@@ -8,7 +8,7 @@
     use App\Http\Controllers\TeacherController;
     use App\Http\Controllers\BlogController;
     use App\Http\Controllers\AuthController;
-    use App\Http\Controllers\EmailController;
+  
 
     // Home Page
 
@@ -52,7 +52,6 @@
 
 
     Route::get('/', [HomeController::class, 'index']);
-
     Route::get('/school-time', [TimeController::class, 'index']);
     Route::get('/school-events', [EventController::class, 'index']);
     Route::get('school-teachers', [TeacherController::class, 'index']);

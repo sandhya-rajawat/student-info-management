@@ -36,40 +36,41 @@
             <li class="relative group cursor-pointer">
                 <span class="hover:text-green-500 transition">About School</span>
                 <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
-                  
-                 
-                 
-                  <li>
-    <a href="school-time" class="block py-1 px-2 hover:bg-green-100 rounded">
-        School Timing
-    </a>
-</li>
-<li>
-    <a href="school-teachers" class="block py-1 px-2 hover:bg-green-100 rounded">
-        School Teachers
-    </a>
-</li>
-<li>
-    <a href="school-events" class="block py-1 px-2 hover:bg-green-100 rounded">
-        School Events
-    </a>
-</li>
-<li>
-    <a href="school-blog" class="block py-1 px-2 hover:bg-green-100 rounded">
-        School Blog
-    </a>
-</li>
-</li>
-                </ul>
+
+
+
+                    <li>
+                        <a href="school-time" class="block py-1 px-2 hover:bg-green-100 rounded">
+                            School Timing
+                        </a>
+                    </li>
+                    <li>
+                        <a href="school-teachers" class="block py-1 px-2 hover:bg-green-100 rounded">
+                            School Teachers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="school-events" class="block py-1 px-2 hover:bg-green-100 rounded">
+                            School Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="school-blog" class="block py-1 px-2 hover:bg-green-100 rounded">
+                            School Blog
+                        </a>
+                    </li>
             </li>
+        </ul>
+        </li>
 
 
         </ul>
 
         <!-- Sign In/Out + User Name -->
         <div class="flex items-center gap-4 text-sm">
-            @if(Session::has('profile'))
-            <p class="font-medium text-green-600">{{ Session::get('profile')->name }}</p>
+            @php $user = auth()->user(); @endphp
+            @if($user)
+            <p class="font-medium text-green-600">{{$user->name}}</p>
             <a href="{{ url('signout') }}" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition">Sign Out</a>
             @else
             <a href="{{ url('signin') }}" class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">Sign In</a>
