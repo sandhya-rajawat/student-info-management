@@ -32,8 +32,8 @@
         Route::get('tourtext', [TourController::class, 'create']);
         Route::post('/messages', [TourController::class, 'store']);
 
-        Route::get('key-features', [HomeController::class, 'create']);
-        Route::post('features', [HomeController::class, 'store']);
+        Route::get('/key-features', [HomeController::class, 'create']);
+        Route::post('/features', [HomeController::class, 'store']);
 
         Route::get('time', [TimeController::class, 'create']);
         Route::post('schooltime', [TimeController::class, 'store']);

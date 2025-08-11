@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TeacherRequest;
+
 use App\Models\teacher;
 
 use Illuminate\Http\Request;
@@ -13,24 +15,8 @@ class TeacherController extends Controller
     {
         return view('teacher-community-form');
     }
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {
-
-        $request->validate(
-            [
-              
-                'possition' => 'required|string',
-                'edution' => 'required|string',
-                'name' => 'required|string',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            ],
-            [
-                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
-                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
-                'image.max' => 'Image size must not exceed 2MB.'
-            ]
-        );
-
         $DataDetail = new teacher();
         $DataDetail->name = $request->name;
         $DataDetail->possition = $request->possition;

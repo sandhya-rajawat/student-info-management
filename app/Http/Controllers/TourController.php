@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use  App\Models\TextContent;
+use App\Http\Requests\TourRequest;
 
 use Illuminate\Http\Request;
 
@@ -14,19 +15,12 @@ class TourController extends Controller
         return view('home.tour-content-form');
     }
     
-    public function store(Request $request)
+    public function store(TourRequest $request)
     {
-        //  Step 1: Validate input
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-
-        ]);
-
         //  Step 2: Create new instance
         $message = new TextContent();
-        $message->title = $validated['title'];
-        $message->description = $validated['description'];
+        $message->title = $request['title'];
+        $message->description = $request['description'];
 
 
         // Step 4: Save to DB

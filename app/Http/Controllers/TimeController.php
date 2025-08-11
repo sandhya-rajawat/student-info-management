@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SchoolTime;
-
+use App\Http\Requests\TimeRequest;
 class TimeController extends Controller
 {
     // create form
@@ -14,16 +14,16 @@ class TimeController extends Controller
     }
 
     // save the form
-    public function store(Request $request)
+    public function store(TimeRequest $request)
     {
         $DataSclTime = new SchoolTime();
         $DataSclTime->title = $request->title;
         $DataSclTime->day = $request->day;
         if ($DataSclTime->save()) {
 
-            return redirect('/')->with("success", 'Details added successfully!');
+            return redirect()->back()->with("success", 'Details added successfully!');
         } else {
-            return  back()->with("Error", "Somthing Wrong");
+            return   redirect()->back()->with("Error", "Somthing Wrong");
         }
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\EventRequest;
 use App\Models\SchoolEvent;
 
 use Illuminate\Http\Request;
@@ -14,20 +14,9 @@ class EventController extends Controller
         return view('events-form');
     }
     // save the form data
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        $request->validate(
-            [
-                'title' => 'required|string|max:255',
-                'name' => 'required|string',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            ],
-            [
-                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
-                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
-                'image.max' => 'Image size must not exceed 2MB.'
-            ]
-        );
+       
         $DataSchoolEvents = new SchoolEvent();
         $DataSchoolEvents->name = $request->name;
         $DataSchoolEvents->title = $request->title;

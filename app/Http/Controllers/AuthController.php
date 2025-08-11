@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\AuthRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\VerifyOtpRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,16 +24,8 @@ class AuthController extends Controller
         return view('signin');
     }
 
-    public function store(Request $request)
+    public function store(AuthRequest $request)
     {
-        $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email',
-            'phone'    => 'required|string|max:20',
-            'password' => 'required|min:6|confirmed',
-            'gender'   => 'required',
-        ]);
-
         $user = new User();
         $user->name     = $request->name;
         $user->email    = $request->email;
@@ -45,14 +40,9 @@ class AuthController extends Controller
         }
     }
 
-    public function loginUser(Request $request)
+    public function loginUser(LoginRequest $request)
     {
-        $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required',
-        ]);
-
-        $user = User::where('email', $request->email)->first();
+       $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             // Generate OTP
@@ -81,12 +71,8 @@ class AuthController extends Controller
         return view('auth.verify-otp'); // No OTP passed to view
     }
 
-    public function verifyOtp(Request $request)
+    public function verifyOtp(VerifyOtpRequest $request)
     {
-        $request->validate([
-            'otp' => 'required|digits:6',
-        ]);
-
         $userId  = Session::get('user_id');
         if (!$userId) {
             return redirect('/signin')->with('error', 'Please login first.');
