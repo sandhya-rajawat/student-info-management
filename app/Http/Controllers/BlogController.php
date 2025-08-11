@@ -17,9 +17,7 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
 $data=$request->only(['title','description']);
-
-
-        if ($request->hasFile('image')) {
+     if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
@@ -27,8 +25,8 @@ $data=$request->only(['title','description']);
         }
         SchoolBlog::create($data);
        return redirect()->back()->with('success', 'Details added successfully!');
-    
     }
+    
 
     public function index()
     {

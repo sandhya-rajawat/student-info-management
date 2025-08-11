@@ -11,28 +11,20 @@ class TourController extends Controller
 
 
 {
-      public function create(){
+    public function create()
+    {
         return view('home.tour-content-form');
     }
-    
+
     public function store(TourRequest $request)
     {
-        //  Step 2: Create new instance
-        $message = new TextContent();
-        $message->title = $request['title'];
-        $message->description = $request['description'];
-
-
-        // Step 4: Save to DB
-        if ($message->save()) {
-            return redirect('/')->with('success', 'Message added successfully!');
-        }
-
-        return back()->with('error', 'Something went wrong.');
+        $data = $request->only(['title','description']);
+        TextContent::create($data);
+        return redirect('/')->with('success', 'Message added successfully!');
     }
 
-    // public function index(){
-    //     $textcontent=textcontent::first();
-    //     return view('home.index',['data'=>$textcontent]);
-    // }
+    //  public function index(){
+    //         $textcontent=textcontent::first();
+    //         return view('home.index',['data'=>$textcontent]);
+
 }

@@ -17,22 +17,17 @@ class TeacherController extends Controller
     }
     public function store(TeacherRequest $request)
     {
-        $DataDetail = new teacher();
-        $DataDetail->name = $request->name;
-        $DataDetail->possition = $request->possition;
-        $DataDetail->Eduction = $request->edution;
+
+        $data = $request->only(['name', 'possition', 'edution']);
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
-            $DataDetail->image = $filename;
+            $data['image'] = $filename;
         }
-        if ($DataDetail->save()) {
+        teacher::create($data);
 
-            return redirect()->back()->with("success", 'Details added successfully!');
-        } else {
-            return redirect()->back()->with("Error", "Somthing Wrong");
-        }
+        return redirect()->back()->with("Error", "Somthing Wrong");
     }
 
 

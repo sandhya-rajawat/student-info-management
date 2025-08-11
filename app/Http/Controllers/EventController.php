@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\EventRequest;
 use App\Models\SchoolEvent;
 
@@ -16,23 +17,21 @@ class EventController extends Controller
     // save the form data
     public function store(EventRequest $request)
     {
-       
-        $DataSchoolEvents = new SchoolEvent();
-        $DataSchoolEvents->name = $request->name;
-        $DataSchoolEvents->title = $request->title;
+        $data = $request->only('title', 'name');
+
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . "." . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
-            $DataSchoolEvents->image = $filename;
-            if ($DataSchoolEvents->save()) {
-
-                return redirect()->back()->with("success", 'Details added successfully!');
-            } else {
-                return redirect()->back()->with("Error", "Somthing Wrong");
-            }
+            $data['image'] = $filename;
         }
+
+        SchoolEvent::create($data);
+        return redirect()->back()->with("success", 'Details added successfully!');
     }
+
+
     // fetch data
     function index()
     {
