@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolBlog extends Model
 {
-    protected $table="school_blogs";
+    protected $table="schoolblogs";
 }

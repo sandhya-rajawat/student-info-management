@@ -24,7 +24,8 @@
 
     <div class="mb-5">
       <label for="title" class="block mb-1 text-gray-700 font-medium">image</label>
-      <input type="file" name="image" id="title"
+      <input type="file" name="image" id="image
+      " accept=".jpg,.jpeg,.png,image/jpeg,image/png"
         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
         placeholder="Upload File..." required>
     </div>
@@ -39,4 +40,15 @@
     </div>
   </form>
 </div>
+@if ($errors->any())
+    <script>
+        alert("{{ $errors->first() }}");
+    </script>
+@endif
+@if(session('success'))
+  <script>alert("{{ session('success') }}");</script>
+@elseif(session('error'))
+  <script>alert("{{ session('error') }}");</script>
+@endif
+
 @endsection

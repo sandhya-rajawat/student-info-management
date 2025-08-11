@@ -58,7 +58,7 @@ class AuthController extends Controller
             // Generate OTP
             $otp = rand(100000, 999999);
             $user->otp = $otp;
-            $user->otp_expiration = now()->addMinutes(5);
+            $user->otp_expiration = now()->addMinutes(2);
             $user->save();
 
             Log::info('Generated OTP for user ID ' . $user->id . ': ' . $otp); //  Logging OTP
@@ -114,8 +114,7 @@ class AuthController extends Controller
 
     public function logoutUser()
     {
-
-        Session::forget('user_id');
+        Auth::logout();
         return redirect('/')->with('success', 'Logged out successfully!');
     }
 }

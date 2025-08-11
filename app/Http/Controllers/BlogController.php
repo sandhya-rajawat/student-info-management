@@ -1,23 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\SchoolBlog;
 
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-     public function create(){
+    public function create()
+    {
         return view('blog-form');
     }
-  
+
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
+        $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            ],
+            [
+                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
+                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+                'image.max' => 'Image size must not exceed 2MB.'
+            ]
+        );
 
         $homeSection = new SchoolBlog;
         $homeSection->title = $request->title;
@@ -31,15 +41,15 @@ class BlogController extends Controller
         }
 
         if ($homeSection->save()) {
-            return redirect('/')->with('success', 'Details added successfully!');
+            return redirect()->back()->with('success', 'Details added successfully!');
         } else {
-            return back()->with('error', 'Something went wrong!');
+            return redirect()->back()->with('error', 'Something went wrong!');
         }
     }
 
     public function index()
     {
         $details = SchoolBlog::all();
-         return view('blog', [ 'data' => $details ]);
+        return view('blog', ['data' => $details]);
     }
 }

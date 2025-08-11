@@ -16,6 +16,18 @@ class EventController extends Controller
     // save the form data
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'title' => 'required|string|max:255',
+                'name' => 'required|string',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            ],
+            [
+                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
+                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+                'image.max' => 'Image size must not exceed 2MB.'
+            ]
+        );
         $DataSchoolEvents = new SchoolEvent();
         $DataSchoolEvents->name = $request->name;
         $DataSchoolEvents->title = $request->title;
@@ -26,9 +38,9 @@ class EventController extends Controller
             $DataSchoolEvents->image = $filename;
             if ($DataSchoolEvents->save()) {
 
-                return redirect('/')->with("success", 'Details added successfully!');
+                return redirect()->back()->with("success", 'Details added successfully!');
             } else {
-                return back()->with("Error", "Somthing Wrong");
+                return redirect()->back()->with("Error", "Somthing Wrong");
             }
         }
     }

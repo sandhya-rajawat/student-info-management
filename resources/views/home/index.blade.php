@@ -34,7 +34,7 @@
       <div class="grid md:grid-cols-3 gap-6">
       @foreach($detail as $info)
         <div class="bg-white p-4 rounded-xl shadow-md">
-          <img src="{{ asset('uploads/' . $info->image) }}" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
+          <img src="{{ asset('uploads/' . $info->image) }}"   accept=".jpg,.jpeg,.png,image/jpeg,image/png" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
           <a href="blog-detils"><h3 class="text-xl font-semibold mb-2  cursor-pointer">{{$info->title}}</h3></a>
           <p class="text-gray-700 text-sm mb-3">{{$info->description}}</p>
           <div class="flex space-x-4 text-gray-600 text-sm mt-2">

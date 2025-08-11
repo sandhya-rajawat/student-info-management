@@ -20,7 +20,10 @@ class HomeController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        ]);
+        ],
+        ['image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
+        'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+        'image.max' => 'Image size must not exceed 2MB.']);
 
         $homeSection = new HomeFeature;
         $homeSection->title = $request->title;
@@ -34,9 +37,9 @@ class HomeController extends Controller
         }
 
         if ($homeSection->save()) {
-            return redirect('/')->with('success', 'Details added successfully!');
+            return redirect()->back()->with('success', 'Details added successfully!');
         } else {
-            return back()->with('error', 'Something went wrong!');
+            return redirect()->back()->with('error', true);
         }
     }
 

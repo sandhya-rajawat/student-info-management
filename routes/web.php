@@ -52,6 +52,7 @@
 
 
     Route::get('/', [HomeController::class, 'index']);
+    // Route::get('key-features', [HomeController::class, 'index']);
     Route::get('/school-time', [TimeController::class, 'index']);
     Route::get('/school-events', [EventController::class, 'index']);
     Route::get('school-teachers', [TeacherController::class, 'index']);
