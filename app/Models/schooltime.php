@@ -8,4 +8,5 @@ class SchoolTime extends Model
 {
     protected $table = 'school_times';
     protected $fillable = ['title', 'day'];
+     protected $guarded = ['id'];
 }

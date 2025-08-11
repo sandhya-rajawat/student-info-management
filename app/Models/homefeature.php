@@ -8,4 +8,5 @@ class HomeFeature extends Model
 {
     protected $table = 'home_features';
     protected $fillable = ['title', 'description', 'image'];
+     protected $guarded = ['id'];
 }

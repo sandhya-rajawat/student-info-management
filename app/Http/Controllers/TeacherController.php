@@ -25,9 +25,13 @@ class TeacherController extends Controller
             $file->move(public_path('uploads'), $filename);
             $data['image'] = $filename;
         }
-        teacher::create($data);
+        $user = teacher::create($data);
 
-        return redirect()->back()->with("Error", "Somthing Wrong");
+        if ($user) {
+            return redirect()->back()->with('success', 'Details added successfully!');
+        } else {
+            return back()->with("error", 'Failed to create account!');
+        }
     }
 
 

@@ -19,8 +19,12 @@ class TourController extends Controller
     public function store(TourRequest $request)
     {
         $data = $request->only(['title', 'description']);
-        TextContent::create($data);
-        return redirect('/')->with('success', 'Message added successfully!');
+        $user = TextContent::create($data);
+        if ($user) {
+            return redirect()->back()->with('success', 'Details added successfully!');
+        } else {
+            return back()->with("error", 'Failed to create account!');
+        }
     }
 
     //  public function index(){

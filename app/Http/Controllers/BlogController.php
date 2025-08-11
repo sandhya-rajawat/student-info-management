@@ -23,9 +23,15 @@ class BlogController extends Controller
             $file->move(public_path('uploads'), $filename);
             $data['image'] = $filename;
         }
-        SchoolBlog::create($data);
-        return redirect()->back()->with('success', 'Details added successfully!');
+        $user = SchoolBlog::create($data);
+        if ($user) {
+            return redirect()->back()->with('success', 'Details added successfully!');
+        } else {
+            return back()->with("error", 'Failed to create account!');
+        }
     }
+
+
 
 
     public function index()

@@ -19,8 +19,12 @@ class TimeController extends Controller
     {
 
         $data = $request->only(['title', 'day']);
-        SchoolTime::create($data);
-        return redirect()->back()->with("success", 'Details added successfully!');
+        $user = SchoolTime::create($data);
+        if ($user) {
+            return redirect()->back()->with('success', 'Details added successfully!');
+        } else {
+            return back()->with("error", 'Failed to create account!');
+        }
     }
 
     // data list

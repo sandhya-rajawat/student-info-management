@@ -8,4 +8,5 @@ class Teacher extends Model
 {
      protected $table = 'teachers';
      protected $fillable = ['possition', 'name', 'eduction,image'];
+      protected $guarded = ['id'];
 }

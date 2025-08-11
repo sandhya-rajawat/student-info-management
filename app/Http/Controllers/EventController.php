@@ -27,8 +27,12 @@ class EventController extends Controller
             $data['image'] = $filename;
         }
 
-        SchoolEvent::create($data);
-        return redirect()->back()->with("success", 'Details added successfully!');
+        $user =  SchoolEvent::create($data);
+        if ($user) {
+            return redirect()->back()->with('success', 'Details added successfully!');
+        } else {
+            return back()->with("error", 'Failed to create account!');
+        }
     }
 
 

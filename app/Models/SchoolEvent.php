@@ -8,4 +8,5 @@ class SchoolEvent extends Model
 {
     protected $table = 'school_events';
     protected $fillable = ['title', 'name', 'image'];
+     protected $guarded = ['id'];
 }
