@@ -4,12 +4,9 @@ namespace App\Http\Controllers;
 
 use  App\Models\TextContent;
 use App\Http\Requests\TourRequest;
-
 use Illuminate\Http\Request;
 
 class TourController extends Controller
-
-
 {
     public function create()
     {

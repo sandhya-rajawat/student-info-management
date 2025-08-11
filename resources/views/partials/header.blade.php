@@ -25,7 +25,7 @@
                     <li><a href="{{ url('key-features') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Key Features</a></li>
                     <li><a href="{{ url('tourtext') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Tour Text</a></li>
                     <li><a href="{{ url('blog') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Blog</a></li>
-                    <li><a href="{{ url('time') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Time</a></li>
+                    <li><a href="{{ url('schooltime') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Time</a></li>
                     <li><a href="{{ url('events') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Events</a></li>
                     <li><a href="{{ url('teachers') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Teachers</a></li>
 
@@ -36,9 +36,6 @@
             <li class="relative group cursor-pointer">
                 <span class="hover:text-green-500 transition">About School</span>
                 <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
-
-
-
                     <li>
                         <a href="school-time" class="block py-1 px-2 hover:bg-green-100 rounded">
                             School Timing
@@ -62,8 +59,6 @@
             </li>
         </ul>
         </li>
-
-
         </ul>
 
         <!-- Sign In/Out + User Name -->
