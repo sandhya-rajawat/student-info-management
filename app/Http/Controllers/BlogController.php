@@ -16,22 +16,18 @@ class BlogController extends Controller
 
     public function store(BlogRequest $request)
     {
-        $homeSection = new SchoolBlog;
-        $homeSection->title = $request->title;
-        $homeSection->description = $request->description;
+$data=$request->only(['title','description']);
+
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
-            $homeSection->image = $filename;
+            $data['image'] = $filename;
         }
-
-        if ($homeSection->save()) {
-            return redirect()->back()->with('success', 'Details added successfully!');
-        } else {
-            return redirect()->back()->with('error', 'Something went wrong!');
-        }
+        SchoolBlog::create($data);
+       return redirect()->back()->with('success', 'Details added successfully!');
+    
     }
 
     public function index()
