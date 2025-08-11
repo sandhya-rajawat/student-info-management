@@ -12,45 +12,45 @@
     <div class="mb-5">
       <label for="title" class="block mb-1 text-gray-700 font-medium">Title</label>
       <input type="text" name="title" id="title"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
-             placeholder="Enter title..." required>
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+        placeholder="Enter title..." required>
     </div>
     <div class="mb-5">
       <label for="title" class="block mb-1 text-gray-700 font-medium">Week/Day</label>
       <input type="text" name="day" id="day"
-             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
-             placeholder="Enter Week/Day..." required>
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+        placeholder="Enter Week/Day..." required>
     </div>
-  
+
 
 
 
     <!-- Submit Button -->
     <div class="text-center">
       <button type="submit"
-              class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
+        class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
         Update Time
       </button>
     </div>
   </form>
 </div>
 @if ($errors->any())
-    <script>
-        alert("{{ $errors->first() }}");
-    </script>
+<script>
+  alert("{{ $errors->first() }}");
+</script>
 @endif
 @if(session('success')){
-  <script>
+<script>
   alert("{{ session('success') }}");
-    </script>
+</script>
 
 }
 @elseif(session('error')){
- <script>
+<script>
   alert("{{session('error')}}");
- </script>
+</script>
 
-  
+
 }
 @endif
 @endsection

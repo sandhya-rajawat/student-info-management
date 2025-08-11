@@ -19,11 +19,10 @@ class SendOtpMail extends Mailable
         $this->subjectLine = $subjectLine;
     }
 
-   public function build()
-{
-    return $this->subject($this->subjectLine)
-                ->view('email.otp') 
-                ->with(['msg' => $this->msg]);
+    public function build()
+    {
+        return $this->subject($this->subjectLine)
+            ->view('email.otp')
+            ->with(['msg' => $this->msg]);
+    }
 }
-}
-?>

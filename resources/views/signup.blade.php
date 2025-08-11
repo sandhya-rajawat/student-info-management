@@ -14,7 +14,7 @@
       <p class="text-gray-500">Donec sollicitudin molestie malesuada sollicitudin</p>
 
       <button class="w-full border border-gray-300 rounded-full py-2 px-4 text-sm font-medium flex items-center justify-center hover:bg-gray-100">
-        <a href="https://www.google.com/"> 
+        <a href="https://www.google.com/">
           <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt="">
         </a>
         Sign In With Google
@@ -28,13 +28,13 @@
 
       {{-- Validation Errors --}}
       @if ($errors->any())
-        <div class="mb-4 text-red-600">
-          <ul>
-            @foreach ($errors->all() as $error)
-               <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
+      <div class="mb-4 text-red-600">
+        <ul>
+          @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
       @endif
 
       <form method="POST" action="{{ url('signup') }}" class="space-y-4">

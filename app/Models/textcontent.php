@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TextContent extends Model
 {
-    protected $table='text_contents';
-    protected $fillable=['description','title'];
+    protected $table = 'text_contents';
+    protected $fillable = ['description', 'title'];
 }

@@ -22,8 +22,8 @@ class TimeRequest extends FormRequest
     public function rules(): array
     {
         return [
-           'title' => 'required|string|max:255',
-        'day'   => 'required|string|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+            'title' => 'required|string|max:255',
+            'day'   => 'required|string|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
         ];
     }
 }

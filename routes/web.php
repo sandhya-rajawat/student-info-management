@@ -8,7 +8,7 @@
     use App\Http\Controllers\TeacherController;
     use App\Http\Controllers\BlogController;
     use App\Http\Controllers\AuthController;
-  
+
 
     // Home Page
 

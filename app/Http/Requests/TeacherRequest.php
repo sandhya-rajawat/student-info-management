@@ -21,14 +21,14 @@ class TeacherRequest extends FormRequest
      */
     public function rules(): array
     {
-        return 
-          [
-              
+        return
+            [
+
                 'possition' => 'required|string',
                 'edution' => 'required|string',
                 'name' => 'required|string',
                 'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-          ];
+            ];
     }
     public function messages()
     {

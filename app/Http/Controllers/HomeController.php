@@ -18,23 +18,17 @@ class HomeController extends Controller
 
     public function store(FeatureRequest $request)
     {
-
-        $homeSection = new HomeFeature;
-        $homeSection->title = $request->title;
-        $homeSection->description = $request->description;
+        $data = $request->only(['title', 'description']);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
-            $homeSection->image = $filename;
+            $data['image'] = $filename;
         }
+        HomeFeature::create($data);
 
-        if ($homeSection->save()) {
-            return redirect()->back()->with('success', 'Details added successfully!');
-        } else {
-            return redirect()->back()->with('error', true);
-        }
+        return redirect()->back()->with('success', 'Details added successfully!');
     }
 
     public function index()

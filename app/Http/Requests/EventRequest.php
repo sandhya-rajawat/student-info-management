@@ -22,19 +22,19 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
-                
-                'title' => 'required|string|max:255',
-                'name' => 'required|string',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-        
+
+            'title' => 'required|string|max:255',
+            'name' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+
         ];
     }
     public function messages()
     {
         return   [
-                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
-                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
-                'image.max' => 'Image size must not exceed 2MB.'
+            'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
+            'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+            'image.max' => 'Image size must not exceed 2MB.'
         ];
     }
 }

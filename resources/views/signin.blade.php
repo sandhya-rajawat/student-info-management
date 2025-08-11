@@ -14,13 +14,13 @@
       <p class="text-gray-500">Donec sollicitudin molestie malesuada sollicitudin</p>
 
       <button class="w-full border border-gray-300 rounded-full py-2 px-4 text-sm font-medium flex items-center justify-center hover:bg-gray-100">
-       
-      <a href="https://www.google.com/"> <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt=""></a>
+
+        <a href="https://www.google.com/"> <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5 mr-2" alt=""></a>
         Sign In With Google
       </button>
 
       <div class="flex items-center justify-center text-gray-400 text-sm">
-        <hr class="w-1/4 border-gray-300"> 
+        <hr class="w-1/4 border-gray-300">
         <span class="mx-2">Or Sign In With Email</span>
         <hr class="w-1/4 border-gray-300">
       </div>
@@ -30,25 +30,25 @@
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Email Address</label>
           <input type="email" name="email" placeholder="you@example.com" required
-                 class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Password</label>
           <input type="password" name="password" placeholder="********" required
-                 class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
         <button type="submit"
-                class="w-20 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
+          class="w-20 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
           Sign In
         </button>
-  
+
         <button type="submit"
-                class="w-20 ml-10 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
-      <a href="{{ url('signUp') }}">Sign Up</a>
+          class="w-20 ml-10 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
+          <a href="{{ url('signUp') }}">Sign Up</a>
         </button>
-  
+
 
       </form>
     </div>
@@ -57,10 +57,10 @@
   <!-- Right Side - Image/Gradient -->
   <div class="hidden md:block w-1/2 bg-gradient-to-r from-pink-500 to-orange-400 text-white p-10 relative mb-10">
     <h2 class="text-3xl font-bold mt-20">Turn your All ideas into<br>your reality</h2>
-    
-  <img src="{{ asset('image/grraf.avif') }}" 
-     class="mt-10 rounded-xl shadow-xl opacity-70 " 
-     alt="Chart">
+
+    <img src="{{ asset('image/grraf.avif') }}"
+      class="mt-10 rounded-xl shadow-xl opacity-70 "
+      alt="Chart">
 
 
     <div class="absolute bottom-10 right-10 bg-white text-gray-800 p-4 rounded-lg shadow-md">

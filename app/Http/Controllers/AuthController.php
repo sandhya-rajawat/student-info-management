@@ -26,23 +26,20 @@ class AuthController extends Controller
 
     public function store(AuthRequest $request)
     {
-        $user = new User();
-        $user->name     = $request->name;
-        $user->email    = $request->email;
-        $user->phone    = $request->phone;
-        $user->password = Hash::make($request->password);
-        $user->gender   = $request->gender;
+        $data = $request->only(['name', 'email', 'phone', 'gender']);
+        $data['password'] = Hash::make($request->password);
+        $user = User::create($data);
 
-        if ($user->save()) {
+        if ($user) {
             return redirect('/signin')->with("success", 'Account created! Please log in.');
         } else {
-            return back()->with("error", 'Failed to save data!');
+            return back()->with("error", 'Failed to create account!');
         }
     }
 
     public function loginUser(LoginRequest $request)
     {
-       $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
             // Generate OTP

@@ -20,21 +20,20 @@ class BlogRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-{
-    return [
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-    ];
-}
+    {
+        return [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ];
+    }
 
-public function messages(): array
-{
-    return [
-        'image.image' => 'Uploaded file must be a jpg, jpeg, png, or webp.',
-        'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
-        'image.max' => 'Image size must not exceed 2MB.',
-    ];
-}
-
+    public function messages(): array
+    {
+        return [
+            'image.image' => 'Uploaded file must be a jpg, jpeg, png, or webp.',
+            'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+            'image.max' => 'Image size must not exceed 2MB.',
+        ];
+    }
 }

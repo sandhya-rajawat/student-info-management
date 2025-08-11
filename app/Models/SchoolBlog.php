@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolBlog extends Model
 {
-    protected $table="schoolblogs";
-    protected $fillable=['title','description','image'];
+    protected $table = "schoolblogs";
+    protected $fillable = ['title', 'description', 'image'];
 }

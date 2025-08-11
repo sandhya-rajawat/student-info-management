@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
@@ -16,9 +16,9 @@
         </form>
 
         @if(session('error'))
-            <div class="mt-4 text-red-600 text-center">
-                {{ session('error') }}
-            </div>
+        <div class="mt-4 text-red-600 text-center">
+            {{ session('error') }}
+        </div>
         @endif
     </div>
 </div>

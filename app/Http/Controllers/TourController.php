@@ -18,7 +18,7 @@ class TourController extends Controller
 
     public function store(TourRequest $request)
     {
-        $data = $request->only(['title','description']);
+        $data = $request->only(['title', 'description']);
         TextContent::create($data);
         return redirect('/')->with('success', 'Message added successfully!');
     }

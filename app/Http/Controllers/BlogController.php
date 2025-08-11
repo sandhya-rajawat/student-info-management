@@ -16,17 +16,17 @@ class BlogController extends Controller
 
     public function store(BlogRequest $request)
     {
-$data=$request->only(['title','description']);
-     if ($request->hasFile('image')) {
+        $data = $request->only(['title', 'description']);
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads'), $filename);
             $data['image'] = $filename;
         }
         SchoolBlog::create($data);
-       return redirect()->back()->with('success', 'Details added successfully!');
+        return redirect()->back()->with('success', 'Details added successfully!');
     }
-    
+
 
     public function index()
     {

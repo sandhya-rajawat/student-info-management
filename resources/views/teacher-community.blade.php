@@ -17,7 +17,7 @@
   <div class="max-w-6xl mx-auto space-y-4 px-4">
 
     <div class="grid md:grid-cols-4 gap-4 justify-center">
-@foreach($data as $info)
+      @foreach($data as $info)
       <!-- Committee Member 1 -->
       <div class="bg-green-100 p-2 rounded-xl shadow-md text-center w-60 cursor-pointer">
         <img src="{{asset('uploads/'.$info->image)}}" alt="Trustee" class="w-24 h-24 mx-auto rounded-full object-cover mb-2">
@@ -26,11 +26,11 @@
         <p class="text-gray-600 text-sm">{{$info->possition}}</p>
       </div>
 
-    
 
-      
 
-    @endforeach
+
+
+      @endforeach
 
     </div>
   </div>

@@ -41,14 +41,18 @@
   </form>
 </div>
 @if ($errors->any())
-    <script>
-        alert("{{ $errors->first() }}");
-    </script>
+<script>
+  alert("{{ $errors->first() }}");
+</script>
 @endif
 @if(session('success'))
-  <script>alert("{{ session('success') }}");</script>
+<script>
+  alert("{{ session('success') }}");
+</script>
 @elseif(session('error'))
-  <script>alert("{{ session('error') }}");</script>
+<script>
+  alert("{{ session('error') }}");
+</script>
 @endif
 
 @endsection

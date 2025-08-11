@@ -14,7 +14,7 @@
 
   <!-- News Cards Grid -->
   <div class="max-w-6xl mx-auto mt-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 cursor-pointer">
-@foreach($getinfo as $info)
+    @foreach($getinfo as $info)
     <!-- Card 1 -->
     <div class="bg-gray-50 shadow p-4 rounded-lg">
       <img src="{{asset('uploads/'.$info->image)}}" alt="Event Image" class="w-full h-48 object-cover rounded" />
@@ -27,9 +27,9 @@
     @endforeach
 
 
-  
 
-  
+
+
 
   </div>
 </div>
