@@ -37,7 +37,7 @@
       </div>
       @endif
 
-      <form method="POST" action="{{ url('signup') }}" class="space-y-4">
+      <form method="POST" action="{{ url('signup') }}" enctype="multipart/form-data" class="space-y-4">
         @csrf
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Name</label>
@@ -63,6 +63,15 @@
             <option value="female" {{ old('gender')=='female' ? 'selected' : '' }}>Female</option>
           </select>
         </div>
+
+         <div class="mb-5">
+      <label for="title" class="block mb-1 text-gray-700 font-medium">image</label>
+      <input type="file" name="image" id="image
+      " accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900"
+        placeholder="Upload File..." required>
+    </div>
+
 
         <div>
           <label class="text-sm font-medium text-gray-700 block mb-1">Password</label>

@@ -28,6 +28,12 @@ class AuthController extends Controller
     {
         $data = $request->only(['name', 'email', 'phone', 'gender']);
         $data['password'] = Hash::make($request->password);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $data['image'] = $filename;
+        }
         $user = User::create($data);
 
         if ($user) {

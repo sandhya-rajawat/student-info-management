@@ -46,7 +46,7 @@
 
         <button type="submit"
           class="w-20 ml-10 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
-          <a href="{{ url('signUp') }}">Sign Up</a>
+          <a href="{{ url('signup') }}">Sign Up</a>
         </button>
 
 

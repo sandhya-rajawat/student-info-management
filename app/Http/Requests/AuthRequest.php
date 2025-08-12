@@ -30,4 +30,12 @@ class AuthRequest extends FormRequest
 
         ];
     }
+      public function messages(): array
+    {
+        return [
+            'image.image' => 'Uploaded file must be a jpg, jpeg, png, or webp.',
+            'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+            'image.max' => 'Image size must not exceed 2MB.',
+        ];
+    }
 }

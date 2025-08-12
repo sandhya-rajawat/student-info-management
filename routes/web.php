@@ -10,10 +10,11 @@
     use App\Http\Controllers\AuthController;
     // Auth Routes (Register, Login, OTP, Logout)
 
-    Route::get('signin', [AuthController::class, 'createSignIn'])->name('login');
+
+    Route::get('signup', [AuthController::class, 'createSignUp'])->name('signup');
     Route::post('signup', [AuthController::class, 'store']);
 
-
+    Route::get('signin', [AuthController::class, 'createSignIn'])->name('login');
     Route::post('signin', [AuthController::class, 'loginUser']);
 
     Route::get('/verify-otp', [AuthController::class, 'showOtpForm'])->name('showOtpForm');
@@ -22,7 +23,7 @@
     Route::get('signout', [AuthController::class, 'logoutUser']);
 
     Route::middleware(['auth'])->group(function () {
-        
+
         Route::get('/tourtext', [TourController::class, 'create']);
         Route::post('/tourtext', [TourController::class, 'store']);
 

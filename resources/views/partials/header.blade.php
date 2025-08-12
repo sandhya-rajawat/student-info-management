@@ -10,7 +10,6 @@
                 <h1 class="text-3xl font-bold text-green-500">𝙎𝙝𝙞𝙠𝙨𝙝𝙖</h1>
             </a>
         </div>
-
         <!-- Navigation Links -->
         <ul class="flex gap-6 text-lg font-semibold text-gray-800">
             <li>
@@ -21,17 +20,14 @@
             <li class="relative group cursor-pointer">
                 <span class="hover:text-green-500 transition">Form</span>
                 <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
-
                     <li><a href="{{ url('key-features') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Key Features</a></li>
                     <li><a href="{{ url('tourtext') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Tour Text</a></li>
                     <li><a href="{{ url('blog') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Blog</a></li>
                     <li><a href="{{ url('schooltime') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Time</a></li>
                     <li><a href="{{ url('events') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Events</a></li>
                     <li><a href="{{ url('teachers') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Teachers</a></li>
-
                 </ul>
             </li>
-
             <!-- About School Dropdown -->
             <li class="relative group cursor-pointer">
                 <span class="hover:text-green-500 transition">About School</span>
@@ -60,7 +56,6 @@
         </ul>
         </li>
         </ul>
-
         <!-- Sign In/Out + User Name -->
         <div class="flex items-center gap-4 text-sm">
             @php $user = auth()->user(); @endphp
