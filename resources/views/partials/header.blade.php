@@ -61,10 +61,58 @@
             @php $user = auth()->user(); @endphp
             @if($user)
             <p class="font-medium text-green-600">{{$user->name}}</p>
-            <a href="{{ url('signout') }}" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition">Sign Out</a>
+            <!-- profile image -->
+            <div class="relative group inline-block ">
+                <a href="{{ url()->current() }}?menu=open">
+                    <img src="{{ asset('uploads/' . $user->image) }}" alt="Profile" class="h-10 w-10 rounded-full border border-gray-300 shadow"></a>
+
+                {{-- Dropdown Menu --}}
+                @if(request('menu')==='open')
+                <ul class="absolute right-0 mt-2 w-64 bg-gray-100 border rounded-lg shadow-lg p-4 text-center space-y-3">
+
+
+                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        @php
+                        $word = collect(explode(' ', $user->name))
+                        ->map(fn($word) => strtoupper(mb_substr($word, 0, 1)))
+                        ->implode('');
+                        @endphp
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-gray-500 text-white font-bold text-lg shadow mx-auto">
+                            {{ $word }}
+                        </div>
+
+                    </li>
+                    <li class=" hover:bg-gray-100 cursor-pointer w-10">
+                        
+                        <p class="font-medium text-sm text-gray-500  break-all w-60 px-2 py-1 rounded">
+                            {{$user->email}}
+                        </p>
+                    </li>
+                    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <a href="{{ url('signout') }}"
+                            class="inline-block bg-red-500 text-white font-semibold py-1 px-4 rounded hover:bg-red-600 transition">
+                            Sign Out
+                        </a>
+                    </li>
+                </ul>
+
+                @endif
+            </div>
             @else
-            <a href="{{ url('signin') }}" class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">Sign In</a>
+
+            <a href="{{ url('signin') }}"
+                class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">
+                ꜱɪɢɴ ɪɴ
+            </a>
             @endif
+
+
+            </li>
+
+
+            </ul>
         </div>
+
+    </div>
     </div>
 </header>
