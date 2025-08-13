@@ -8,6 +8,8 @@
     use App\Http\Controllers\TeacherController;
     use App\Http\Controllers\BlogController;
     use App\Http\Controllers\AuthController;
+    use App\Http\Controllers\ProfileControllor;
+
     // Auth Routes (Register, Login, OTP, Logout)
 
 
@@ -41,6 +43,9 @@
 
         Route::get('/blog', [BlogController::class, 'create']);
         Route::post('/blog', [BlogController::class, 'store']);
+
+        Route::get('/profile', [ProfileControllor::class, 'show']);
+        // Route::post('/blog', [BlogController::class, 'store']);
     });
 
     // Public Index Pages
@@ -49,3 +54,8 @@
     Route::get('/school-events', [EventController::class, 'index']);
     Route::get('school-teachers', [TeacherController::class, 'index']);
     Route::get('school-blog', [BlogController::class, 'index']);
+
+    // User-Profile
+    
+
+
