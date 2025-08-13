@@ -92,7 +92,7 @@
                     </a>
                 </li> -->
                 <li>
-                <a href="{{ url('profile') }}" class="flex items-center gap-3 px-4 py-1 hover:bg-gray-100 text-sm text-gray-700 ">
+                <a href="{{ url('profile-edit') }}" class="flex items-center gap-3 px-4 py-1 hover:bg-gray-100 text-sm text-gray-700 ">
                     <img src="{{ asset('image/profile.png') }} " class="w-4">
                     My Profile
                 </a>
