@@ -37,4 +37,14 @@ class ProfileRequest extends FormRequest
 
         ];
     }
+
+     public function messages()
+    {
+        return
+            [
+                'image.image' => 'Uploaded file must be an  jpg, jpeg, png, or webp .',
+                'image.mimes' => 'Image must be in jpg, jpeg, png, or webp format.',
+                'image.max' => 'Image size must not exceed 2MB.'
+            ];
+}
 }

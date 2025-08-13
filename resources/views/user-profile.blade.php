@@ -13,9 +13,9 @@
 
         <!-- Profile Photo -->
         <div class="text-center">
-            <img src="{{ $user->image ? asset('uploads/' . $user->image) : asset('default-avatar.png') }}" 
+            <img  src="{{ $user->image ? asset('uploads/' . $user->image) : asset('default-avatar.png') }}" 
                  alt="Profile Photo" class="w-24 h-24 rounded-full mx-auto mb-2 object-cover border">
-            <input type="file" name="photo" class="mt-2 block w-full text-sm text-gray-600">
+            <input type="file" name="image" class="mt-2 block w-full text-sm text-gray-600">
         </div>
 
         <!-- Name -->
