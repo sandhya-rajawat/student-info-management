@@ -4,8 +4,9 @@
 <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6 mt-40">
     <h2 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Reset Password</h2>
 
-    <form action="{{ url('/password-reset') }}" method="POST" class="space-y-5">
+    <form action="{{ url('/reset-password') }}" method="POST" class="space-y-5">
         @csrf
+        @method('PUT')
 
         <!-- Current Password -->
         <div>

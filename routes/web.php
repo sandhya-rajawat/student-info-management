@@ -10,7 +10,7 @@
     use App\Http\Controllers\AuthController;
     use App\Http\Controllers\ProfileController;
     use App\Http\Controllers\PasswordController;
-   
+
 
     // Auth Routes (Register, Login, OTP, Logout)
 
@@ -49,6 +49,7 @@
         Route::get('/profile-edit', [ProfileController::class, 'show']);
         Route::put('/profile-edit', [ProfileController::class, 'update']);
         Route::get('/reset-password', [PasswordController::class, 'create']);
+        Route::put('/reset-password', [PasswordController::class, 'changePassword']);
     });
 
     // Public Index Pages

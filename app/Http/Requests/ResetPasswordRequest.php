@@ -11,7 +11,7 @@ class ResetPasswordRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,16 @@ class ResetPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'current_password' => 'required','current_password',
-            'password_confirmation'     => 'required|min:8|confirmed',
+            'current_password' => 'required|current_password',
+            'password_confirmation'     => 'required|min:8|confirmed|different:current_password'
         ];
+        
     }
+    public function attributes(): array
+{
+    return [
+        'new_password' => 'new password',
+    ];
+}
+
 }
