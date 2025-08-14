@@ -23,17 +23,9 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email', 
-             'password' => [
-            'nullable',          // null allowed (matlab optional)
-            'string',
-            'min:8',
-            'confirmed',         // password_confirmation match kare
-            'regex:/[A-Z]/',     // kam se kam 1 uppercase
-            'regex:/[a-z]/',     // kam se kam 1 lowercase
-            'regex:/[0-9]/',     // kam se kam 1 number
-            'regex:/[@$!%*#?&]/' // kam se kam 1 special character
-        ],
+            'email'    => 'required|email|unique:users,email,'. $this->user()->id
+         
+        
 
         ];
     }
