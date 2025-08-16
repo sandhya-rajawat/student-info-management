@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 
 class ProfileController extends Controller
 {
     public function show()
+
     {
         $user = Auth::user();
         return view('user-profile', compact('user'));
     }
-
-
     public function update(ProfileRequest $rst)
     {
+        /**@var User $user */
         $user = Auth::user();
 
         $user->name = $rst->name;

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-lg mx-auto bg-yellow-50 shadow-lg rounded-lg p-6 mt-20">
+<div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6 mt-55">
     <h2 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Edit Profile</h2>
 
     <form action="{{ url('profile-edit') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
