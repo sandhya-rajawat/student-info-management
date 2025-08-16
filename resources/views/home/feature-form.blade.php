@@ -3,7 +3,7 @@
 
 
 <div class="flex items-center justify-center max-h-[calc(100vh-120px)] mt-30">
-  <form action="{{url('/key-features')}}" enctype="multipart/form-data" method="POST" class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
+  <form action="{{url('/key-features')}}" enctype="multipart/form-data" method="POST" class="bg-yellow-50 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
     @csrf
     <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">New Key Feacture</h2>
 

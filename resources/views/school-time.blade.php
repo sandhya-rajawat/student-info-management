@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="min-h-[calc(110vh-160px)] bg-gray-100 py-10">
+<div class="min-h-[calc(110vh-160px)] bg-blue-50 py-10">
 
   <!-- Banner Section -->
   <div class="relative pt-10">
@@ -12,7 +12,7 @@
   </div>
 
   <!-- Section Heading -->
-  <div class="text-center mt-5">
+  <div class="text-center mt-10">
     <h2 class="text-xl font-bold uppercase tracking-wider text-blue-900">School Timings</h2>
     <div class="mt-2 border-b-2 w-24 mx-auto border-pink-500"></div>
   </div>

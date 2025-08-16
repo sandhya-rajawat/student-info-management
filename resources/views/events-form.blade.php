@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="flex items-center justify-center min-h-[calc(120vh-160px)]
- bg-gray-100">
-  <form action="{{url('events')}}" enctype="multipart/form-data" method="POST" class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
+ bg-blue-50">
+  <form action="{{url('events')}}" enctype="multipart/form-data" method="POST" class="bg-yellow-50 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
     @csrf
 
 

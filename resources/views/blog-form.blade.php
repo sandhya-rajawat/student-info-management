@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="flex items-center justify-center max-h-[calc(100vh-120px)] mt-30">
-  <form action="{{url('/blog')}}" enctype="multipart/form-data" method="POST" class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
+<div class="flex items-center justify-center max-h-[calc(100vh-120px)] mt-35">
+  <form action="{{url('/blog')}}" enctype="multipart/form-data" method="POST" class="bg-yellow-50 backdrop-blur-sm p-8 rounded-2xl shadow-lg w-full max-w-lg">
     @csrf
     <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">Add New Post</h2>
 

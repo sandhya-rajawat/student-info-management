@@ -1,6 +1,6 @@
 @vite('resources/css/app.css')
 
-<header class="fixed top-0 z-50 w-full bg-white shadow">
+<header class="fixed top-0 z-50 w-full bg-blue-100 shadow h-20 ">
     <div class="flex items-center justify-between px-5 py-2">
 
         {{-- Logo + Title --}}
@@ -10,17 +10,17 @@
                     class="h-12 w-12 rounded-full border border-gray-300 shadow" alt="Logo">
             </a>
             <a href="/">
-                <h1 class="text-3xl font-bold text-green-500">𝙎𝙝𝙞𝙠𝙨𝙝𝙖</h1>
+                <h1 class="text-3xl font-bold text-blue-800">𝙎𝙝𝙞𝙠𝙨𝙝𝙖</h1>
             </a>
         </div>
 
         {{-- Navigation --}}
         <ul class="flex gap-6 text-lg font-semibold text-gray-800">
-            <li><a href="/" class="hover:text-green-500 transition">Home</a></li>
+            <li><a href="/" class="hover:text-blue-500  transition">Home</a></li>
 
             {{-- Form Dropdown --}}
             <li class="relative group">
-                <span class="hover:text-green-500 transition cursor-pointer">Form</span>
+                <span class="hover:text-blue-500 transition cursor-pointer">Form</span>
                 <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
                     <li><a href="{{ url('key-features') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Key Features</a></li>
                     <li><a href="{{ url('tourtext') }}" class="block py-1 px-2 hover:bg-green-100 rounded">Tour Text</a></li>
@@ -33,7 +33,7 @@
 
             {{-- About School Dropdown --}}
             <li class="relative group">
-                <span class="hover:text-green-500 transition cursor-pointer">About School</span>
+                <span class="hover:text-blue-500  transition cursor-pointer">About School</span>
                 <ul class="absolute left-0 hidden group-hover:block bg-white border rounded shadow p-3 w-48 z-10">
                     <li><a href="school-time" class="block py-1 px-2 hover:bg-green-100 rounded">School Timing</a></li>
                     <li><a href="school-teachers" class="block py-1 px-2 hover:bg-green-100 rounded">School Teachers</a></li>
@@ -92,10 +92,10 @@
                     </a>
                 </li> -->
                 <li>
-                <a href="{{ url('profile-edit') }}" class="flex items-center gap-3 px-4 py-1 hover:bg-gray-100 text-sm text-gray-700 ">
-                    <img src="{{ asset('image/profile.png') }} " class="w-4">
-                    My Profile
-                </a>
+                    <a href="{{ url('profile-edit') }}" class="flex items-center gap-3 px-4 py-1 hover:bg-gray-100 text-sm text-gray-700 ">
+                        <img src="{{ asset('image/profile.png') }} " class="w-4">
+                        My Profile
+                    </a>
                 </li>
 
                 {{-- Sign Out --}}
@@ -112,7 +112,7 @@
             @endif
             @else
             {{-- Sign In --}}
-            <a href="{{ url('signin') }}" class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">
+            <a href="{{ url('signin') }}" class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">
                 ꜱɪɢɴ ɪɴ
             </a>
             @endif

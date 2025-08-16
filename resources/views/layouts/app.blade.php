@@ -10,13 +10,13 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-blue-50 text-gray-900 font-sans">
 
 
     @include('partials.header')
 
 
-    <main class="min-h-screen py-8 px-4">
+    <main class="min-h-screen   font-sans bg-blue-50">
         @yield('content')
     </main>
 

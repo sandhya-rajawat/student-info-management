@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="min-h-[calc(120vh-160px)] bg-gray-100 py-10">
+<div class="min-h-[calc(120vh-160px)] bg-blue-50 py-10">
   <!-- Header Image with Students -->
   <div class="relative">
     <img src="image/dance.jpg" alt="Students in Classroom" class="w-full h-64 object-cover rounded-xl shadow-md" />
@@ -16,7 +16,7 @@
   <div class="max-w-6xl mx-auto mt-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 cursor-pointer">
     @foreach($getinfo as $info)
     <!-- Card 1 -->
-    <div class="bg-gray-50 shadow p-4 rounded-lg">
+    <div class="bg-red-50 shadow p-4 rounded-lg">
       <img src="{{asset('uploads/'.$info->image)}}" alt="Event Image" class="w-full h-48 object-cover rounded" />
       <h3 class="text-md font-semibold mt-4 text-center">{{$info->name}}</h3>
       <div class="text-sm text-gray-600 mt-2 text-center">

@@ -9,7 +9,7 @@
 
       <!-- Positioned content -->
       @if($data)
-      <div class="absolute top-[150px] left-10 bg-white/80 p-6 rounded-xl shadow-lg max-w-lg">
+      <div class="absolute top-[150px] left-10 bg-yellow-50 p-6 rounded-xl shadow-lg max-w-lg">
 
         <h1 class="text-4xl font-bold text-gray-800">{{$data->title}}</h1>
         <p class="mt-4 text-gray-700">{{$data->description}}</p>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- About Section -->
-    <div class="p-10 bg-gray-100">
+    <div class="p-10 bg-blue-50">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4 text-blue-900">About Our System</h2>
         <p class="text-gray-700">
@@ -28,27 +28,29 @@
     </div>
 
     <!-- Features Section -->
-    <div class="p-10 bg-white mt-10">
+    <div class="mt-10 mr-20 bg-blue-50">
       <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6 text-center text-blue-900">Key Features</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          @foreach($detail as $info)
-          <div class="bg-white p-4 rounded-xl shadow-md">
-            <img src="{{ asset('uploads/' . $info->image) }}" accept=".jpg,.jpeg,.png,image/jpeg,image/png" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
-            <a href="blog-detils">
-              <h3 class="text-xl font-semibold mb-2  cursor-pointer">{{$info->title}}</h3>
-            </a>
-            <p class="text-gray-700 text-sm mb-3">{{$info->description}}</p>
-            <div class="flex space-x-4 text-gray-600 text-sm mt-2">
-              <p>{{$info->created_at}}</p>
-              <p>{{$info->updated_at}}</p>
-            </div>
+        <h2 class="text-4xl font-bold mb-6 text-center text-blue-900">Key Features</h2><br>
+        <p class="mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus iusto eos necessitatibus magni. Aperiam eum quae harum magnam repudiandae culpa tempore praesentium fugit atque, magni eius explicabo adipisci a neque?</p>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        @foreach($detail as $info)
+        <div class="bg-red-50 p-4 rounded-xl shadow-md">
+          <img src="{{ asset('uploads/' . $info->image) }}" accept=".jpg,.jpeg,.png,image/jpeg,image/png" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
+          <a href="blog-detils">
+            <h3 class="text-xl font-semibold mb-2  cursor-pointer">{{$info->title}}</h3>
+          </a>
+          <p class="text-gray-700 text-sm mb-3">{{$info->description}}</p>
+          <div class="flex space-x-4 text-gray-600 text-sm mt-2">
+            <p>{{$info->created_at}}</p>
+            <p>{{$info->updated_at}}</p>
           </div>
-          @endforeach
-
         </div>
+        @endforeach
+
       </div>
     </div>
+  </div>
 
 
 

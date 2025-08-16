@@ -10,7 +10,7 @@
     <div class="grid md:grid-cols-3 gap-6">
 
       @foreach($data as $info )
-      <div class="bg-white p-4 rounded-xl shadow-md">
+      <div class="bg-red-50 p-4 rounded-xl shadow-md">
         <img src="{{ asset('uploads/'.$info->image) }}" class="w-full h-40 object-cover rounded-lg mb-4" alt="Blog Image">
         <a href="blog-details">
           <h3 class="text-xl font-semibold mb-2 cursor-pointer">{{$info->title}}</h3>
