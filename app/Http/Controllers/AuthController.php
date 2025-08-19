@@ -27,7 +27,7 @@ class AuthController extends Controller
     public function store(AuthRequest $request)
     {
         $data = $request->only(['name', 'email', 'phone', 'gender']);
-        $data['password'] = $request->password;
+        $data['password']=Hash::make( $request->password);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -47,7 +47,7 @@ class AuthController extends Controller
     {
         $user = User::where('email', $request->email)->first();
 
-        if ($user && $request->password=== $user->password) {
+        if ($user && Hash::check($request->password ,$user->password)) {
             // Generate OTP
             $otp = rand(100000, 999999);
             $user->otp = $otp;

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\User;
 
@@ -21,7 +21,7 @@ class PasswordController extends Controller
         $user = Auth::user(); // current login user
 
         // password update
-        $user->password = $rst->new_password;
+        $user->password =Hash::make( $rst->new_password);
         $user->save();
 
         return redirect()->back()->with('success', 'Password updated successfully.');

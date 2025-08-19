@@ -6,32 +6,33 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ResetPasswordRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            'current_password' => 'required|current_password',
-            'password_confirmation'     => 'required|min:8|confirmed|different:current_password'
-        ];
-        
-    }
-    public function attributes(): array
-{
-    return [
-        'new_password' => 'new password',
-    ];
-}
+            // check current password matches
+            'current_password' => ['required', 'current_password'],
 
+            // new password rules
+            'new_password' => [
+                'required',
+                'string',
+                'min:8',
+                'different:current_password',
+                'confirmed', // this will check new_password_confirmation field
+            ],
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'new_password' => 'new password',
+            'current_password' => 'current password',
+        ];
+    }
 }
