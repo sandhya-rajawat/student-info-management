@@ -10,6 +10,7 @@
     use App\Http\Controllers\AuthController;
     use App\Http\Controllers\ProfileController;
     use App\Http\Controllers\PasswordController;
+    use App\Http\Controllers\ForgetpasswordController;
 
 
     // Auth Routes (Register, Login, OTP, Logout)
@@ -50,6 +51,7 @@
         Route::put('/profile-edit', [ProfileController::class, 'update']);
         Route::get('/reset-password', [PasswordController::class, 'create']);
         Route::put('/reset-password', [PasswordController::class, 'changePassword']);
+
     });
 
     // Public Index Pages
@@ -60,3 +62,6 @@
     Route::get('school-blog', [BlogController::class, 'index']);
 
     // User-Profile
+// forget
+
+        Route::get('/forget-password',[ForgetpasswordController::class,'create']);

@@ -38,6 +38,12 @@
           <input type="password" name="password" placeholder="********" required
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
+        <div class="flex justify-between items-center mt-2">
+    <a href="{{ url('forget-password') }}" class="text-sm text-blue-600 hover:underline">
+        Forgot Password?
+    </a>
+</div>
+
 
         <button type="submit"
           class="w-20 py-2 rounded-md text-white bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 transition">
