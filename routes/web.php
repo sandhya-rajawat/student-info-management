@@ -65,3 +65,4 @@
 // forget
 
         Route::get('/forget-password',[ForgetpasswordController::class,'create']);
+        Route::post('/forget-password',[ForgetpasswordController::class,'store']);
