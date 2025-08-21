@@ -24,7 +24,6 @@ class ForgetpasswordRequest extends FormRequest
         return [
 
 
-            'email' => 'required|email|exists:users,email',
             'password' => 'required|min:6|confirmed',
         ];
     }

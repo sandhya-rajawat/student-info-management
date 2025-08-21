@@ -51,7 +51,6 @@
         Route::put('/profile-edit', [ProfileController::class, 'update']);
         Route::get('/reset-password', [PasswordController::class, 'create']);
         Route::put('/reset-password', [PasswordController::class, 'changePassword']);
-
     });
 
     // Public Index Pages
@@ -62,7 +61,10 @@
     Route::get('school-blog', [BlogController::class, 'index']);
 
     // User-Profile
-// forget
+    // forget
 
-        Route::get('/forget-password',[ForgetpasswordController::class,'create']);
-        Route::post('/forget-password',[ForgetpasswordController::class,'store']);
+    Route::get('/serch-email', [ForgetpasswordController::class, 'resetpasswordcreate']);
+    Route::post('/serch-email', [ForgetpasswordController::class, 'findAccount']);
+    Route::get('/forget-password/{id}', [ForgetpasswordController::class, 'create'])->name('forget-password.form');
+
+    Route::post('/forget-password/{id}', [ForgetpasswordController::class, 'store']);

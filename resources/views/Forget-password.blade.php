@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-md mx-auto mt-20 bg-white p-6 shadow rounded">
+<div class="max-w-md mx-auto mt-55 bg-white p-6 shadow rounded">
 
     {{-- SUCCESS MESSAGE --}}
     @if(session('success'))
@@ -23,15 +23,10 @@
 
     <h2 class="text-2xl font-bold mb-4">Reset Password</h2>
 
-    <form method="POST" action="{{ url('forget-password') }}">
+    <form method="POST" action="{{ url('forget-password/{id}') }}">
         @csrf
 
-        <!-- Email -->
-        <div class="mb-4">
-            <label class="block text-sm font-medium">Email</label>
-            <input type="email" name="email" required
-                class="w-full border rounded px-3 py-2">
-        </div>
+       
 
         <!-- New Password -->
         <div class="mb-4">

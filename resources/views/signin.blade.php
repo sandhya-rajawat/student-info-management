@@ -39,10 +39,10 @@
             class="w-full bg-blue-50 p-2 rounded-md border border-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
         <div class="flex justify-between items-center mt-2">
-    <a href="{{ url('forget-password') }}" class="text-sm text-blue-600 hover:underline">
-        Forgot Password?
-    </a>
-</div>
+          <a href="{{ url('serch-email') }}" class="text-sm text-blue-600 hover:underline">
+            Forgot Password?
+          </a>
+        </div>
 
 
         <button type="submit"
