@@ -11,10 +11,10 @@
   <form action="{{ url('serch-email') }}" method="POST" class="p-6">
     @csrf
     <p class="text-gray-600 mb-4">
-      Please enter your email address or mobile number to search for your account.
+      Please enter your email address
     </p>
 
-    <input type="text" name="email" placeholder="Email address or mobile number"
+    <input type="text" name="email" placeholder="Email address"
       class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
 
     <!-- Buttons -->
