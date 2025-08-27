@@ -100,7 +100,12 @@ class AuthController extends Controller
         Auth::guard()->login($dbUser);
         if ($dbUser->role === 'teacher') {
             return redirect('/teacher-dashboard')->with('success', 'Welcome Teacher!');
-        } else {
+        
+        }elseif($dbUser->role === 'student'){
+             return redirect('/students-dashboard')->with('success', 'Welcome student!');
+        
+        } 
+        else {
             return redirect('/')->with('success', 'OTP Verified Successfully!');
         }
     }

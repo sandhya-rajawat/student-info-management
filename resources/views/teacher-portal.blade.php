@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="flex h-screen mt-50">
+<div class="flex h-screen mt-20">
 
     {{-- Sidebar --}}
     <aside class="w-64 bg-blue-800 text-white flex flex-col">
