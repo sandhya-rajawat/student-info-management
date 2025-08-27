@@ -11,6 +11,7 @@
     use App\Http\Controllers\ProfileController;
     use App\Http\Controllers\PasswordController;
     use App\Http\Controllers\ForgetpasswordController;
+    use App\Http\Controllers\TeacherPortalController;
 
 
     // Auth Routes (Register, Login, OTP, Logout)
@@ -51,6 +52,10 @@
         Route::put('/profile-edit', [ProfileController::class, 'update']);
         Route::get('/reset-password', [PasswordController::class, 'create']);
         Route::put('/reset-password', [PasswordController::class, 'changePassword']);
+
+        // teacher-portal
+
+        Route::get('/teacher-dashboard', [TeacherPortalController::class, 'create']);
     });
 
     // Public Index Pages
@@ -66,5 +71,4 @@
     Route::get('/serch-email', [ForgetpasswordController::class, 'resetpasswordcreate']);
     Route::post('/serch-email', [ForgetpasswordController::class, 'findAccount']);
     Route::get('/forget-password/{id}', [ForgetpasswordController::class, 'create'])->name('forget-password.form');
-
     Route::post('/forget-password/{id}', [ForgetpasswordController::class, 'store']);
