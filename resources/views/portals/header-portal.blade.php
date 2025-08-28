@@ -14,7 +14,7 @@
 
         {{-- Navigation --}}
         <ul class="flex gap-35 font-semibold text-gray-300">
-            <li><a href="/" class="hover:text-blue-500  transition">Dashboard</a></li>
+            <li><a href="teacher-dashboard" class="hover:text-blue-500  transition">Dashboard</a></li>
             <li><a href="#" class="hover:text-blue-500  transition">Manage Students</a></li>
             <li><a href="#" class="hover:text-blue-500  transition">Invite Student</a></li>
 

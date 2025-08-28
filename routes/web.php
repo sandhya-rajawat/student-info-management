@@ -56,7 +56,7 @@
 
         // teacher-portal
 
-        Route::get('/teacher-dashboard', [TeacherPortalController::class, 'create']);
+        Route::get('/teacher-dashboard', [TeacherPortalController::class, 'index']);
         Route::get('/students-dashboard', [StudentsPortalController::class, 'create']);
     });
 

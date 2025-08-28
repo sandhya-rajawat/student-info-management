@@ -8,15 +8,15 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 mt-10">
             <div class="bg-white rounded-xl shadow p-6">
                 <h2 class="text-gray-600 text-sm">Total Students</h2>
-                <p class="text-2xl font-bold text-gray-800">120</p>
+                <p class="text-2xl font-bold text-gray-800">{{$totalStudents}}</p>
             </div>
             <div class="bg-white rounded-xl shadow p-6">
                 <h2 class="text-gray-600 text-sm">Active Students</h2>
-                <p class="text-2xl font-bold text-green-600">98</p>
+                <p class="text-2xl font-bold text-green-600">{{$activeStudents}}</p>
             </div>
             <div class="bg-white rounded-xl shadow p-6">
                 <h2 class="text-gray-600 text-sm">Pending Approvals</h2>
-                <p class="text-2xl font-bold text-yellow-500">22</p>
+                <p class="text-2xl font-bold text-yellow-500">{{$pendingStudents}}</p>
             </div>
         </div>
 
