@@ -13,6 +13,7 @@
     use App\Http\Controllers\ForgetpasswordController;
     use App\Http\Controllers\TeacherPortalController;
     use App\Http\Controllers\StudentsPortalController;
+    use App\Http\Controllers\TeacherInviteController;
 
 
     // Auth Routes (Register, Login, OTP, Logout)
@@ -58,6 +59,9 @@
 
         Route::get('/teacher-dashboard', [TeacherPortalController::class, 'index']);
         Route::get('/students-dashboard', [StudentsPortalController::class, 'create']);
+        Route::get('/invite-student', [TeacherInviteController::class, 'create']);
+
+
     });
 
     // Public Index Pages
