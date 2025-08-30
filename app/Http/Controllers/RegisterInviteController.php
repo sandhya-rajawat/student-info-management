@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use App\Models\Invite;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterInviteRequest;
@@ -12,14 +13,26 @@ class RegisterInviteController extends Controller
 {
     public function accept($token)
     {
+
+        $request = request();  // Get the current request instance
+        $fullUrl = $request->fullUrl(); // Call fullUrl() on the request instance
+        $ip = $request->ip();  // Get user IP
+
+        Log::info("Invite link accessed", [
+            'url' => $fullUrl,
+            'ip' => $ip,
+            'token' => $token
+        ]);
         $invite = Invite::where('token', $token)->where('status', 'pending')->first();
         if (!$invite) {
+
             return redirect('/')->with('error', 'Invalid or expired invite link');
         }
 
 
         return view('portals.register-invite', compact('invite'));
     }
+
     public function store(RegisterInviteRequest $request)
     {
         $invite = Invite::where('email', $request->email)->where('status', 'pending')->first();
