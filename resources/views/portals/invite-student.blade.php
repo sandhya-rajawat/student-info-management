@@ -5,8 +5,22 @@
         <div class="bg-white p-6 rounded-xl shadow max-w-xl mx-auto mt-10">
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Invite New Student</h2>
 
-            {{-- Static Form --}}
-            <form class="space-y-5">
+            {{-- Success Message --}}
+            @if(session('success'))
+                <div class="bg-green-100 text-green-700 p-4 rounded mb-4">
+                    <p class="font-semibold">{{ session('success') }}</p>
+                    @if(session('invite_link'))
+                        <a href="{{ session('invite_link') }}" target="_blank" 
+                           class="block mt-2 text-blue-600 underline">
+                            {{ session('invite_link') }}
+                        </a>
+                    @endif
+                </div>
+            @endif
+
+            {{-- Invite Form --}}
+            <form class="space-y-5" action="{{ url('/invite') }}" method="post">
+                @csrf
                 <div>
                     <label class="block text-sm font-medium text-gray-600 mb-1">Student Name</label>
                     <input type="text" name="name"
@@ -22,7 +36,7 @@
                 </div>
 
                 <div class="text-right">
-                    <button type="button"
+                    <button type="submit"
                             class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded">
                         Send Invite
                     </button>

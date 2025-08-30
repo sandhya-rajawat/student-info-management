@@ -14,6 +14,7 @@
     use App\Http\Controllers\TeacherPortalController;
     use App\Http\Controllers\StudentsPortalController;
     use App\Http\Controllers\TeacherInviteController;
+    use App\Http\Controllers\RegisterInviteController;
 
 
     // Auth Routes (Register, Login, OTP, Logout)
@@ -59,7 +60,12 @@
 
         Route::get('/teacher-dashboard', [TeacherPortalController::class, 'index']);
         Route::get('/students-dashboard', [StudentsPortalController::class, 'create']);
+
         Route::get('/invite-student', [TeacherInviteController::class, 'create']);
+        Route::post('/invite', [TeacherInviteController::class, 'store']);
+
+        Route::get('/register-invite/{token}', [RegisterInviteController::class, 'accept']);
+        Route::post('/register-invite', [RegisterInviteController::class, 'store']);
 
 
     });
