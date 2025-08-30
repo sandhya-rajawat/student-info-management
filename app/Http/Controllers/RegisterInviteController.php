@@ -41,12 +41,20 @@ class RegisterInviteController extends Controller
         }
         // user create new
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . "." . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $imagePath =  $filename;
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $invite->email,
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
-            'gender' => $request->gender
+            'gender' => $request->gender,
+            'image' => $imagePath
 
         ]);
         $invite->update([

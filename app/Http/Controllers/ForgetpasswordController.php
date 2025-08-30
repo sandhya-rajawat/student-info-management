@@ -35,6 +35,5 @@ class ForgetpasswordController extends Controller
         $user->save();
 
         return redirect()->back()->with('success', 'Password updated successfully.');
-      
     }
 }

@@ -27,6 +27,7 @@ class RegisterInviteRequest extends FormRequest
             'phone' => 'required|digits:10',
             'password' => 'required|min:6|confirmed',
             'gender' => 'required|in:male,female,other',
+            'image' => 'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048'
         ];
     }
 }
