@@ -24,7 +24,7 @@ public function store(TeacherInviteRequest $request){
     'invited_by' => auth()->id(),
     'status'     => 'pending',
 ]);
-$invitelink=url('/portals.register-invite/'.$token);
+$invitelink=url('/register-invite/'.$token);
 return redirect()->back()->with(['success'=> 'Invite sent successfully!',
 'invite_link'=>$invitelink]);
 

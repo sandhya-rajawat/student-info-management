@@ -22,9 +22,11 @@ class RegisterInviteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|string|max:255',
-            'email'=>'required|email',
-            'password'=>'required|min:6|confirmed'
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10',
+            'password' => 'required|min:6|confirmed',
+            'gender' => 'required|in:male,female,other',
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Invite;
 use Illuminate\Http\Request;
-use app\Http\Requests\RegisterInviteRequest;
+use App\Http\Requests\RegisterInviteRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -32,12 +32,14 @@ class RegisterInviteController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $invite->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'gender' => $request->gender
 
         ]);
         $invite->update([
             'status' => 'accepted'
         ]);
-        return redirect('/login')->with('success', 'Registration successful! You can now login.');
+        return redirect('/signin')->with('success', 'Registration successful! You can now login.');
     }
 }
