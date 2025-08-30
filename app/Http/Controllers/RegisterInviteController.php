@@ -14,15 +14,14 @@ class RegisterInviteController extends Controller
     public function accept($token)
     {
 
-        $request = request();  // Get the current request instance
-        $fullUrl = $request->fullUrl(); // Call fullUrl() on the request instance
-        $ip = $request->ip();  // Get user IP
+        // $request = request();  // Get the current request instance
+        // $fullUrl = $request->fullUrl(); // Call fullUrl() on the request instance
+        // // $ip = $request->ip();  // Get user IP
 
-        Log::info("Invite link accessed", [
-            'url' => $fullUrl,
-            'ip' => $ip,
-            'token' => $token
-        ]);
+        // Log::info("Invite link accessed", [
+        //     'url' => $fullUrl,
+        //     'token' => $token
+        // ]);
         $invite = Invite::where('token', $token)->where('status', 'pending')->first();
         if (!$invite) {
 

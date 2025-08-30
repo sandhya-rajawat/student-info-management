@@ -9,12 +9,7 @@
             @if(session('success'))
                 <div class="bg-green-100 text-green-700 p-4 rounded mb-4">
                     <p class="font-semibold">{{ session('success') }}</p>
-                    @if(session('invite_link'))
-                        <a href="{{ session('invite_link') }}" target="_blank" 
-                           class="block mt-2 text-blue-600 underline">
-                            {{ session('invite_link') }}
-                        </a>
-                    @endif
+                  
                 </div>
             @endif
 
