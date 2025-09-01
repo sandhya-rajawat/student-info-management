@@ -54,7 +54,9 @@ class RegisterInviteController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'gender' => $request->gender,
-            'image' => $imagePath
+            'image' => $imagePath ??null,
+            'role'=>'students',
+            'status'=>'active'
 
         ]);
         $invite->update([
