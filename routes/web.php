@@ -19,9 +19,10 @@
 
     // Auth Routes (Register, Login, OTP, Logout)
 
- Route::get('/register-invite/{token}', [RegisterInviteController::class, 'accept']);
-        Route::post('/register-invite', [RegisterInviteController::class, 'store']);
-        
+    Route::get('/register-invite/{token}', [RegisterInviteController::class, 'accept']);
+    Route::post('/register-invite', [RegisterInviteController::class, 'store'])->name('register-invite.store');
+
+
     Route::get('signup', [AuthController::class, 'createSignUp'])->name('signup');
     Route::post('signup', [AuthController::class, 'store']);
 
@@ -65,7 +66,6 @@
 
         Route::get('/invite-student', [TeacherInviteController::class, 'create']);
         Route::post('/invite', [TeacherInviteController::class, 'store']);
-       
     });
 
     // Public Index Pages

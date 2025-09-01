@@ -40,4 +40,5 @@ class ProfileRequest extends FormRequest
                 'image.max' => 'Image size must not exceed 2MB.'
             ];
 }
+
 }

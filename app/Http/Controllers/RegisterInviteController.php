@@ -40,7 +40,7 @@ class RegisterInviteController extends Controller
             return redirect('/')->with('error', 'Invalid or expired invite');
         }
         // user create new
-
+        $imagePath = null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . "." . $file->getClientOriginalExtension();
@@ -54,9 +54,9 @@ class RegisterInviteController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'gender' => $request->gender,
-            'image' => $imagePath ??null,
-            'role'=>'students',
-            'status'=>'active'
+            'image' => $imagePath,
+            'role' => 'student',
+            'status' => 'active'
 
         ]);
         $invite->update([

@@ -8,19 +8,32 @@
             Complete Your Registration
         </h2>
 
-        <form action="{{url('register-invite')}}" method="POST" class="space-y-5 " enctype="multipart/form-data">
+        <form action="{{ route('register-invite.store') }}" method="POST" class="space-y-5" enctype="multipart/form-data">
             @csrf
+
+            {{-- Show all validation errors on top --}}
+            @if ($errors->any())
+                <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                    <ul class="list-disc list-inside text-sm">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <input type="hidden" name="email" value="{{ $invite->email }}">
 
             {{-- Name --}}
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input type="text" name="name" required
+                <input type="text" name="name" value="{{ old('name') }}" required
                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
             </div>
-            {{-- image --}}
+
+            {{-- Image --}}
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">image</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Image</label>
                 <input type="file" name="image" required
                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
             </div>
@@ -31,26 +44,26 @@
                 <input type="text" value="{{ $invite->email }}" disabled
                     class="w-full px-4 py-2 border rounded-lg bg-gray-100 text-gray-500 cursor-not-allowed">
             </div>
-            {{-- phone --}}
+
+            {{-- Phone --}}
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                <input type="text" name="phone"
+                <input type="text" name="phone" value="{{ old('phone') }}"
                     class="w-full px-4 py-2 border rounded-lg bg-white text-gray-800"
                     placeholder="Enter your phone number" required>
             </div>
-            <!-- gender -->
 
+            {{-- Gender --}}
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
                 <select name="gender" required
                     class="w-full px-4 py-2 border rounded-lg bg-white text-gray-800">
-                    <option value="" disabled selected>Select your gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled {{ old('gender') ? '' : 'selected' }}>Select your gender</option>
+                    <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
+                    <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                    <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
                 </select>
             </div>
-
 
             {{-- Password --}}
             <div>
@@ -74,3 +87,4 @@
         </form>
     </div>
 </div>
+    
